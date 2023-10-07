@@ -4,116 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peacock</title>
-    <!-- <link rel="stylesheet" href="app.css" /> -->
-    <style>
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        position: sticky;
-        margin: 30px;
-        top: 0;
-        gap: 50px;
-        background-color: black;
-      }
-      .logoimg {
-        width: 100px;
-      }
-      body {
-        background-color: black;
-      }
-      .navcont {
-        border: 1px solid black;
-        margin-right: 20px;
-        border-radius: 20px;
-        padding: 5px;
-        text-align: center;
-      }
-      .bigimg {
-        background-image: url("/img/background2.jpg");
-        height: 800px;
-        color: white;
-      }
-      .bigimg2 {
-        background-image: url("/img/lastone/bg.webp");
-        height: 800px;
-        color: white;
-      }
-      .header {
-        position: relative;
-        top: 200px;
-        left: 90px;
-        font-size: 40px;
-      }
-      .sub {
-        position: relative;
-        top: 220px;
-        left: 90px;
-        font-size: 25px;
-      }
-      .plan {
-        position: relative;
-        top: 240px;
-        left: 90px;
-        font-size: 25px;
-        border: 1px solid black;
-        width: fit-content;
-        padding: 10px;
-        background-color: #B59410;
-        border-radius: 30px;
-
-        color: black;
-        font-size: 18px;
-      }
-      .premium {
-        color: black;
-        border: 2px solid #B59410;
-        width: 280px;
-        height: 350px;
-        padding: 50px;
-        border-radius: 10px;
-        background-color: white;
-      }
-      .footer {
-        display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
-        text-align: start;
-        gap: 20px;
-      }
-      .footerb {
-        display: flex;
-
-        gap: 20px;
-      }
-      .footera {
-        display: flex;
-        justify-content: space-between;
-      }
-      .border_space {
-        margin-left: 100px;
-        margin-right: 100px;
-      }
-    </style>
+    <link rel="stylesheet" href="app.css" />
+    
   </head>
   <body>
-    <div
-      style="background-color: black; position: sticky; padding: 1px; top: 0"
-    >
+    <div class="navcontainer">
       <div class="navbar">
         <div><img src="/img/peacock_logo2.png" class="logoimg" /></div>
-        <div>
-          <label
+        <div class="signin">
+          <div
             class="navcont"
             style="color: white; background-color: rgb(25, 26, 24)"
-            >Sign In</label
+            >Sign In</div
           >
-          <label
+          <v
             class="navcont"
             style="
               background-color: #B59410;
               padding-right: 10px;
               padding-left: 10px;
             "
-            >Get Stated</label
+            >Get Stated</div
           >
         </div>
       </div>
@@ -130,19 +41,7 @@
     <div class="border_space">
       <h3 style="color: white; margin-top: 90px">Sports & Events</h3>
       <div style="display: flow-root">
-        <div
-          style="
-            float: left;
-            color: white;
-            background-color: rgb(39, 38, 38);
-            height: 250px;
-            width: 50%;
-            overflow: hidden;
-            padding: 30px;
-            padding-top: 50px;
-            box-sizing: border-box;
-          "
-        >
+        <div class="float1">
           <div>
             <div style="font-size: 40px; font-weight: bold">Live Sports</div>
             <div>
@@ -151,12 +50,11 @@
             </div>
           </div>
         </div>
-        <img src="/img/football.png" style="width: 50%; height: 250px" />
+        <img class="floatimg" src="/img/football.png"/>
       </div>
       <br /><br /><br />
       <h3 style="color: white">Just Added</h3>
-      <div
-        style="margin-top: -15px; display: flex; justify-content: space-between"
+      <div class="just_added"
       >
         <img src="/img/Just added/fastx.webp" width="200px" height="200px" />
         <img src="/img/Just added/saw.webp" width="200px" height="200px" />
@@ -176,7 +74,7 @@
       <br /><br /><br />
       <h3 style="color: white">Exclusively Originals</h3>
       <div
-        style="margin-top: -15px; display: flex; justify-content: space-between"
+        style="margin-top: -15px;flex-wrap: wrap; display: flex; gap:10px;"
       >
         <img
           src="/img/Exclusive Originals/continental2.webp"
@@ -207,7 +105,7 @@
 
     <br /><br /><br /><br /><br />
     <div class="bigimg2">
-      <div style="display: flex; justify-content: space-around">
+      <div style="display: flex; flex-wrap: wrap; justify-content:space-evenly;">
         <div style="margin-top: 100px">
           <div class="header">
             The Hottest Movies,
@@ -215,16 +113,7 @@
           </div>
           <div class="plan">Pick A Plan</div>
         </div>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: auto auto auto;
-            gap: 30px;
-            column-gap: 10px;
-            justify-content: space-between;
-            margin-top: 100px;
-          "
-        >
+        <div class="grid1">
           <div>
             <img
               src="/img/lastone/winniethepooh2.webp"
@@ -269,7 +158,7 @@
     <h1 style="color: white; text-align: center">
       Pick Your Plan. Cancel Anytime.
     </h1>
-    <h5 style="color: white; text-align: center">
+    <h5 style="color: white; text-align: center; padding-right: 100px;">
       Monthly &nbsp;
       <span
         style="
@@ -293,21 +182,9 @@
         ></span
       >&nbsp; <span>Annual Plan (Save 17%)</span>
     </h5>
-    <div style="display: flex; gap: 20px; justify-content: center">
+    <div class="pickplancont">
       <div class="premium">
-        <div
-          style="
-            text-align: center;
-            border-radius: 20px;
-            margin-top: 20px;
-            font-size: larger;
-            font-weight: bold;
-            background-color: gold;
-            width: fit-content;
-            padding: 5px;
-            margin-top: -65px;
-          "
-        >
+        <div class="popular">
           Most popular
         </div>
         <br />
@@ -326,18 +203,9 @@
           <li>50+ Always-On Channels</li>
         </ul>
         <div style="font-size: 30px; font-weight: bold">
-          <sup>$</sup>5.99/month
+          <sup>$</sup>5.99<sub style="font-size:medium;">/month</sub>
         </div>
-        <div
-          style="
-            text-align: center;
-            border-radius: 20px;
-            margin-top: 20px;
-            font-size: larger;
-            font-weight: bold;
-            background-color: gold;
-          "
-        >
+        <div class="premiumbutton">
           Get Premium
         </div>
       </div>
@@ -347,27 +215,17 @@
           <div style="width: 80%; margin-top: 20px">
             Everything you get with Premium, plus:
           </div>
-          <ul style="list-style-type:">
+          <ul>
             <li>No Ads (Limited Exclusions*)</li>
             <br />
             <li>Download & Watch Select Titles Offline</li>
             <br />
             <li>Your Local NBC Channel LIVE, 24/7</li>
-            <br />
           </ul>
           <div style="font-size: 30px; font-weight: bold">
-            <sup>$</sup>11.99/month
+            <sup>$</sup>11.99<sub style="font-size:medium;">/month</sub>
           </div>
-          <div
-            style="
-              text-align: center;
-              border-radius: 20px;
-              margin-top: 20px;
-              font-size: larger;
-              font-weight: bold;
-              background-color: gold;
-            "
-          >
+          <div class="premiumbutton">
             Get Premium Plus
           </div>
         </div>
@@ -405,19 +263,7 @@
         </h2>
       </div>
       <br /><br /><br />
-      <div
-        style="
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          display: grid;
-          column-gap: 80px;
-          row-gap: 20px;
-          display: grid;
-          grid-template-columns: auto auto auto auto;
-          margin-bottom: 50px;
-        "
-      >
+      <div class="divice1">
         <div>
           <img
             src="/img/snip/Windows and mack.png"
@@ -440,19 +286,7 @@
       </div>
       <div>
         <div>
-          <div
-            style="
-              align-items: center;
-              justify-content: center;
-              display: grid;
-              margin-bottom: 50px;
-              text-align: center;
-              column-gap: 80px;
-              row-gap: 20px;
-              display: grid;
-              grid-template-columns: auto auto auto auto auto auto;
-            "
-          >
+          <div class="divice2">
             <div><img src="/img/snip/samsung.png" alt="" /></div>
             <div><img src="/img/snip/applt tv.png" alt="" /></div>
             <div><img src="/img/snip/android.png" alt="" /></div>
@@ -468,19 +302,7 @@
           </div>
         </div>
         <div>
-          <div
-            style="
-              align-items: center;
-              justify-content: center;
-              display: grid;
-              margin-bottom: 50px;
-              text-align: center;
-              column-gap: 80px;
-              row-gap: 20px;
-              display: grid;
-              grid-template-columns: auto auto auto auto;
-            "
-          >
+          <div class="divice3">
             <div><img src="/img/snip/playstation.png" alt="" /></div>
             <div><img src="/img/snip/hisense.png" alt="" /></div>
             <div><img src="/img/snip/cox.png" alt="" /></div>
