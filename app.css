@@ -17,6 +17,7 @@
 @media (max-width: 500px) {
   .navbar {
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 .signin {
@@ -68,7 +69,7 @@ body {
   border: 1px solid black;
   width: fit-content;
   padding: 10px;
-  background-color: gold;
+  background-color: #b59410;
   border-radius: 30px;
 
   color: black;
@@ -89,19 +90,18 @@ body {
   padding-top: 50px;
   box-sizing: border-box;
 }
-.floatimg{
-  width: 50%; 
+.floatimg {
+  width: 50%;
   height: 250px;
 }
-@media screen and (max-width:700px) {
-  .float1{
-    float:none;
-    width:100%;
+@media screen and (max-width: 700px) {
+  .float1 {
+    float: none;
+    width: 100%;
   }
-  .floatimg{
-    width:100%;
+  .floatimg {
+    width: 100%;
   }
-  
 }
 .just_added {
   margin-top: -15px;
@@ -143,11 +143,30 @@ body {
   border-radius: 10px;
   background-color: white;
 }
-
+.premiumbutton {
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bold;
+  padding: 10px;
+  background-color: gold;
+}
+.popular {
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bold;
+  background-color: gold;
+  width: fit-content;
+  padding: 5px;
+  margin-top: -65px;
+}
 .footer {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
-  text-align: start;
+  text-align: star;
   gap: 20px;
 }
 @media screen and (max-width: 700px) {
