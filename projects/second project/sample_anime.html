@@ -1,0 +1,53 @@
+<style>
+  .div1 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: GFG 4s infinite linear;
+    animation-direction: alternate-reverse;
+  }
+  .div2{
+    animation: player 4s infinite linear;
+    animation-direction: alternate-reverse;
+    position: relative;
+  }
+
+  @keyframes GFG {
+    0% {
+      transform: rotate(0deg) translateX(0) rotate(0deg);
+    }
+    25% {
+      transform: rotate(0deg) translateX(0) rotate(120deg);
+    }
+    50% {
+      transform: rotate(-110deg) translateX(0) rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(-170deg) translateX(700px) rotate(0deg);
+    }
+  }
+  @keyframes player{
+    0%   { left:0px; top:0px;}
+    25%  {top:0px;}
+    50%  {top:-30px;}
+    75%  {top:0px;}
+    100% {top:0px;}
+  }
+
+  @media screen and (max-width: 600px) {
+    .dropdown {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+<div style="background-color: black;">
+  <img style="width: 100%; object-fit: cover; " src="/img/basketfield_no_player.png" />
+</div>
+<div class="div1" style="margin-top: -70%; margin-left: 88%; ">
+  <img src="/img/ball3.png" style="width: 160%" />
+</div>
+<div class="div2" ><img src="/img/basketplayer_nobsckground.png" style="width: 30%; margin-left:76%; margin-top: -3%"></div>
+</body>
