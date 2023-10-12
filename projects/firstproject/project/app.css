@@ -1,0 +1,249 @@
+.navcontainer {
+  background-color: black;
+  position: sticky;
+  padding: 1px;
+  top: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  margin: 30px;
+  top: 0;
+  gap: 50px;
+  background-color: black;
+}
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+.signin {
+  display: flex;
+  align-items: center;
+}
+.logoimg {
+  width: 100px;
+}
+body {
+  background-color: black;
+}
+.navcont {
+  border: 1px solid black;
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: center;
+}
+.bigimg {
+  background-image: url("/img/background2.jpg");
+  height: 800px;
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.bigimg2 {
+  background-image: url("/img/lastone/bg.webp");
+  height: 800px;
+  color: white;
+}
+.header {
+  position: relative;
+  top: 200px;
+  left: 90px;
+  font-size: 40px;
+}
+.sub {
+  position: relative;
+  top: 220px;
+  left: 90px;
+  font-size: 25px;
+}
+.plan {
+  position: relative;
+  top: 240px;
+  left: 90px;
+  font-size: 25px;
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px;
+  background-color: #b59410;
+  border-radius: 30px;
+
+  color: black;
+  font-size: 18px;
+}
+.border_space {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.sportTex{
+  color: white; 
+  margin-top: 90px;
+}
+.float1cont{
+  display: flow-root;
+}
+.float1 {
+  float: left;
+  color: white;
+  background-color: rgb(39, 38, 38);
+  height: 250px;
+  width: 50%;
+  overflow: hidden;
+  padding: 30px;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+.floatimg {
+  width: 50%;
+  height: 250px;
+}
+@media screen and (max-width: 700px) {
+  .float1cont {
+    display:none;
+  }
+  .sportTex{
+    display:none;
+  }
+ 
+}
+.just_added {
+  margin-top: -15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+/* media query */
+.grid1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px;
+  column-gap: 10px;
+  margin-top: 100px;
+}
+@media screen and (max-width: 600px) {
+  .grid1 {
+    grid-template-columns: auto auto;
+    margin-top: -150px;
+  }
+}
+.pickplancont {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+@media screen and (max-width: 900px) {
+  .pickplancont {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.premium {
+  color: black;
+  border: 2px solid gold;
+  width: 280px;
+  height: 350px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: white;
+}
+.premiumbutton {
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bold;
+  padding: 10px;
+  background-color: gold;
+}
+.popular {
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: larger;
+  font-weight: bold;
+  background-color: gold;
+  width: fit-content;
+  padding: 5px;
+  margin-top: -65px;
+}
+.footer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  text-align: star;
+  gap: 20px;
+}
+@media screen and (max-width: 700px) {
+  .footer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+.divice1 {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: grid;
+  column-gap: 80px;
+  row-gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-bottom: 50px;
+}
+.divice2 {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  margin-bottom: 50px;
+  text-align: center;
+  column-gap: 80px;
+  row-gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+.divice3 {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  margin-bottom: 50px;
+  text-align: center;
+  column-gap: 80px;
+  row-gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+@media screen and (max-width: 900px) {
+  .divice1 {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .divice2 {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .divice3 {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+.footerb {
+  display: flex;
+
+  gap: 20px;
+}
+.footera {
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+}
+@media screen and (max-width:700px){
+  .footera{
+    flex-direction:column;
+  }
+  .footerb{
+    flex-direction:column;
+  }
+}
