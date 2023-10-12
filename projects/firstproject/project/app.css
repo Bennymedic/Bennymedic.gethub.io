@@ -45,7 +45,7 @@ body {
   margin-right: 50px;
 }
 .bigimg2 {
-  background-image: url("/img/lastone/bg.webp");
+  background-image: URL("./img/lastone/bg.webp");
   height: 800px;
   color: white;
 }
