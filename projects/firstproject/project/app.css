@@ -38,7 +38,7 @@ body {
   text-align: center;
 }
 .bigimg {
-  background-image: url("/img/background2.jpg");
+  background-image: URL("./img/background2.jpg");
   height: 800px;
   color: white;
   margin-left: 50px;
