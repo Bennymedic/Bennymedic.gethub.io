@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function submit() {
+        const div = document.getElementById("div1");
+        const pEle = document.getElementById("para");
+        const text = document.getElementById("textid");
+        const atag = document.getElementById("aid");
+        const textArea = document.getElementById("textArea");
+        const img = document.querySelector("#img");
+        const firstP = document.getElementById("firstp");
+        const secondP = document.getElementById("secondtP");
+        div.innerHTML = "my new div";
+        pEle.innerHTML = "new para";
+        text.value = "new text";
+        atag.innerHTML = "Amazon";
+        atag.setAttribute("href", "https://www.amazon.com");
+        img.setAttribute("src", "ball3.png");
+        // why is text area value cannot be accessed by .value
+        textArea.value = "new text area";
+        // textArea.innerHTML='new';
+        if (firstP.style.display !== "none") {
+        firstP.style.display = "none";
+      } else {
+        firstP.style.display = "";
+      }
+      }
+      
+    </script>
+  </head>
+  <body>
+    <p id="firstp">first p</p>
+    <p id="secondp">second p</p>
+    <div id="div1">My div</div>
+    <p id="para">My paragraph</p>
+    <input type="text" id="textid" value="text" />
+    <br />
+    <a href="https://google.com" id="aid">Google</a>
+    <br />
+    <textarea
+      name=""
+      id="textArea"
+      cols="10"
+      rows="3"
+      value="textarea"
+    ></textarea>
+    <br /><img src="ball.jpg" width="50px" id="img" tedy="id" /><br />
+    <button onclick="submit()">Submit</button>
+  </body>
+</html>
