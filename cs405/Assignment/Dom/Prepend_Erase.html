@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function blank(){
+            const input=document.querySelector('input');
+            input.value='';
+        }
+        function prepend(){
+            const input=document.querySelector('input');
+            const div=document.querySelector('div');
+            const textArea=document.querySelector('textarea');
+            const temp= textArea.value; 
+            div.innerHTML += " " +temp;
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <input type="text">input text
+    <br><br>
+    <textarea name="" id="" cols="30" rows="10" value=""></textarea>
+    <button onclick="blank()">Erase</button>
+    <button onclick="prepend()">prepend</button>
+</body>
+</html>

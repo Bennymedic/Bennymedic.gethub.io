@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function sort(){
+            const container=document.querySelector('#container');
+            const firstDiv=document.querySelector('#firstDiv');
+            const secondDiv=document.querySelector('#secondDiv');
+            firstDiv.style.display='';
+            secondDiv.style.display='';
+            
+            container.style.flexDirection='row-reverse';
+            container.style.justifyContent='start';
+        }
+        function deleteEl1(){
+            const firstDiv=document.querySelector('#firstDiv');
+            firstDiv.style.display='none';
+        }
+        function deleteEl2(){
+            const secondDiv=document.querySelector('#secondDiv');
+            secondDiv.style.display='none';
+        }
+    </script>
+  </head>
+  <body>
+    <button onclick="sort()">Sort</button>
+    <br />
+    <div id="container" style="display: flex; gap: 10px;">
+      <div id="firstDiv" style="display: flex; gap: 10px">
+        <img src="/ball.jpg" style="width: 80px" />
+        <div >
+          <div>John</div>
+          <p>Doe</p>
+          <button onclick="deleteEl1()">Delete</button>
+        </div>
+      </div>
+      <div id="secondDiv" style="display: flex; gap: 10px">
+        <img src="/ball3.png" style="width: 80px" />
+        <div>
+          <div>Maharishi</div>
+          <p>Mahesh</p>
+          <button onclick="deleteEl2()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function toggle(){
+            const firstEl= document.querySelector("#firstEl");
+            const secondEl= document.querySelector("#secondEl");
+            const selection=document.querySelector('#selection');
+            if(selection.value==='Upanishads'){
+                firstEl.style.display='';
+                secondEl.style.display='none';
+            }else{
+                firstEl.style.display='none';
+                secondEl.style.display='';
+            }
+        }
+        function hide(){
+            firstEl.style.display='none';
+            secondEl.style.display='none';
+        }
+    </script>
+</head>
+<body>
+    <label>Scriptures</label>
+    <select name="Scriptures" id="selection">
+        <option value="Upanishads">Upanishads</option>
+        <option value="Vedas">Vedas</option>
+    </select>
+    <button onclick="toggle()">Show</button>
+    <div id="firstEl" style="display: none;">
+        <input type="checkbox" >Aiterya
+        <input type="checkbox" >Brigadarankya
+        <input type="checkbox" >Chadogya
+        <input type="checkbox" >Mandukya
+    </div>
+    <div id="secondEl" style="display: none;">
+        <input type="checkbox" >Rig
+        <input type="checkbox" >Yajur
+        <input type="checkbox" >Adarvana
+        <input type="checkbox" >Sama
+    </div>
+    <hr>
+    <button onclick="hide()">Submit</button>
+</body>
+</html>

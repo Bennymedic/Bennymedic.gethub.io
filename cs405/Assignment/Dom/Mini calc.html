@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function appendText(num) {
+        let myText = document.querySelector("textarea");
+        myText.value = myText.value + num;
+      }
+
+      function execute() {
+        let myText = document.querySelector("textarea");
+        let values = myText.value;
+        let sub;
+        let firstSub;
+        let result = parseInt(values[0]);
+        //validating wether the first element is a number or not
+        //Addition
+        if (values.indexOf("+") !== -1) {
+          values = values.split("+");
+          for (let i = 0; i < values.length; i++) {
+            if (
+              !values[i].includes("-") &&
+              !values[i].includes("*") &&
+              !values[i].includes("/")
+            ) {
+              result += parseInt(values[i]);
+            } else if (values[i].includes("-")) {
+              sub = values[i].split("-");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub -= parseInt(sub[i]);
+              }
+              result += firstSub;
+            } else if (values[i].includes("*")) {
+              sub = values[i].split("*");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub = firstSub * parseInt(sub[i]);
+              }
+              result += firstSub;
+            } else if (values[i].includes("/")) {
+              sub = values[i].split("/");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub = firstSub / parseInt(sub[i]);
+              }
+              result += firstSub;
+            }
+          }
+        } 
+        //Substraction
+        else if (values.indexOf("-") !== -1) {
+          values = values.split("-");
+          for (let i = 1; i < values.length; i++) {
+            if (
+              !values[i].includes("*") &&
+              !values[i].includes("/")
+            ) {
+              result -= parseInt(values[i]);
+            } else if (values[i].includes("*")) {
+              sub = values[i].split("*");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub *= parseInt(sub[i]);
+              }
+              result -= firstSub;
+            } else if (values[i].includes("/")) {
+              sub = values[i].split("/");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub /= parseInt(sub[i]);
+              }
+              result -= firstSub;
+            }
+          }
+        }
+        //Multiplication
+        else if (values.indexOf("*") !== -1) {
+          values = values.split("*");
+          for (let i = 1; i < values.length; i++) {
+            if (!values[i].includes("/")
+            ) {
+              result *= parseInt(values[i]);
+            }else{
+              sub = values[i].split("/");
+              firstSub = parseInt(sub[0]);
+              for (let i = 1; i < sub.length; i++) {
+                firstSub /= parseInt(sub[i]);
+              }
+              result *= firstSub;
+            }
+          }
+        }
+        //Division
+        else{
+            values = values.split("/");
+          for (let i = 1; i < values.length; i++) {
+            result /= parseInt(values[i]);
+          }
+        }
+        alert(result);
+      }
+    </script>
+  </head>
+  <body>
+    <h1 style="text-align: cente">Mini Calculator</h1>
+    <textarea style="font-size: 40px; font-weight: bolder"></textarea>
+    <div style="font-size: 40px">
+      <button style="font-size: 40px" onclick="appendText(1)">1</button>
+      <button style="font-size: 40px" onclick="appendText(2)">2</button>
+      <button style="font-size: 40px" onclick="appendText(3)">3</button>
+      <button style="font-size: 40px" onclick="appendText(4)">4</button><br />
+      <button style="font-size: 40px" onclick="appendText(5)">5</button>
+      <button style="font-size: 40px" onclick="appendText(6)">6</button>
+      <button style="font-size: 40px" onclick="appendText(7)">7</button>
+      <button style="font-size: 40px" onclick="appendText(8)">8</button><br />
+      <button style="font-size: 40px" onclick="appendText(9)">9</button>
+      <button style="font-size: 40px" onclick="appendText(0)">0</button>
+      <button style="font-size: 40px" onclick="appendText('+')">+</button>
+      <button style="font-size: 40px" onclick="appendText('-')">-</button><br>
+      <button style="font-size: 40px" onclick="appendText('*')">*</button>
+      <button style="font-size: 40px" onclick="appendText('/')">/</button>
+      <button style="font-size: 40px" onclick="execute()">=</button>
+    </div>
+  </body>
+</html>
