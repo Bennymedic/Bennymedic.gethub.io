@@ -16,11 +16,10 @@
         let sub;
         let firstSub;
         let result = parseInt(values[0]);
-        //validating wether the first element is a number or not
         //Addition
         if (values.indexOf("+") !== -1) {
           values = values.split("+");
-          for (let i = 0; i < values.length; i++) {
+          for (let i = 1; i < values.length; i++) {
             if (
               !values[i].includes("-") &&
               !values[i].includes("*") &&
@@ -38,7 +37,7 @@
               sub = values[i].split("*");
               firstSub = parseInt(sub[0]);
               for (let i = 1; i < sub.length; i++) {
-                firstSub = firstSub * parseInt(sub[i]);
+                firstSub *= parseInt(sub[i]);
               }
               result += firstSub;
             } else if (values[i].includes("/")) {
