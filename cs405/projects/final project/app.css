@@ -1,0 +1,63 @@
+.welcome{
+    margin-top:-40%; 
+    margin-left:10%; 
+    color:rgb(0, 214, 18); 
+    font-weight: bolder; 
+    width:min-content
+}
+.items_list{
+    display:flex;
+    gap:40px;
+    justify-content: space-between;
+
+}
+.videoclass{
+  border: 5px solid #111111;
+  box-shadow: 10px 5px 5px;
+  border-radius: 30px;
+  border:2px solid silver; 
+  border-radius: 10px;
+}
+
+.description{
+    border: 1px solid silver;
+    padding:20px;
+    box-shadow: 10px 5px 5px;
+    border-radius: 10px;
+
+}
+#numticket{
+    border:1px solid silver;
+    border-radius: 10px; 
+    width: 150px; 
+    padding: 10px; 
+    margin-bottom:5px;
+}
+#h2id{
+    font-size: 30px;
+    color:red;
+}
+#h2id {
+    animation: blink 4s infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+      transform: scale(2);
+    }
+    51% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+ 
+
+  
