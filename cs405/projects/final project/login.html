@@ -16,8 +16,10 @@
         <div class="container">
             <div>User Id</div>
             <input type="text" id="userId">
+            <div id="incorrect_user" style="display:none; color:red; font-size:18px">Incorrect User Id!</div>
             <div>password</div>
-            <input type="text" id="password">
+            <input type="password" id="password">
+            <div id="incorrect_pass" style="display:none; color:red; font-size:18px">Incorrect password!</div>
         </div>
         <button onclick="login()" type="button"><strong>SIGN IN</strong></button>
         <div class="container" style="background-color: #eee;">
@@ -27,7 +29,7 @@
          
         </div>
       </form>
-    <script src="script_item.js">
+    <script src="login.js">
     </script>
 </body>
 </html>

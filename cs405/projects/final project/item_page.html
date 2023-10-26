@@ -10,33 +10,22 @@
     />
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="app.css">
-    <script src="./script_item.js"></script> 
   </head>
-  <body>
+  <body style="background-image: url('https://wallpaper-house.com/data/out/7/wallpaper2you_152787.jpg');">
     <!-- navbar -->
-    <div class="sticky-top" style="background-color: rgb(154, 138, 180); padding: 40px">
+    <div class="sticky-top" style="background-color: black; padding: 40px">
+      <label style="text-align: center; color:rgb(179, 135, 16); font-size:larger; font-weight:bolder"> Chances2Checkout</label>
       <div class="d-flex justify-content-between">
+       
         <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-search"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-            />
-          </svg>
+          <img src="" style="width: 300px; object-fit: cover" />
         </div>
-        
         <div class="d-flex" style="gap: 20px">
-          <div>
+          <div style="color:white;">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="40"
+              height="40"
               fill="currentColor"
               class="bi bi-person"
               viewBox="0 0 16 16"
@@ -46,20 +35,7 @@
               />
             </svg>
           </div>
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-bag"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
-              />
-            </svg>
-          </div>
+          <div id="user_name" style="color:white; font-size: 20px; border:2px solid silver; padding: 10px; border-radius: 30px;">welcome</div>
         </div>
       </div>
       <div
@@ -92,10 +68,10 @@
             Catagories
           </button>
           <ul class="dropdown-menu" style="background-color: black;">
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-tees">Electonics</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-outerwear-1">Cloths</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-shorts-pants">Shoes</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-shorts-pants">Jewelry</a></li>
+            <li><a class="dropdown-item" href="#perfumes">Perfumes</a></li>
+            <li><a class="dropdown-item" href="#popular-items">Cloths</a></li>
+            <li><a class="dropdown-item" href="#featured-items">Featured Items</a></li>
+            
           </ul>
         </div>
       
@@ -109,10 +85,10 @@
             Account
           </button>
           <ul class="dropdown-menu" style="background-color: black;">
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-tees">Edit profile</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-outerwear-1">Tickets</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-shorts-pants">Switch Account</a></li>
-            <li><a class="dropdown-item" href="https://lakersstore.com/collections/mens-shorts-pants">Sign out</a></li>
+            <li><a class="dropdown-item" href="">Edit profile</a></li>
+            <li><a class="dropdown-item" href="">Tickets</a></li>
+            <li><a class="dropdown-item" href="./login.html">Switch Account</a></li>
+            <li><a class="dropdown-item" href="./login.html">Sign out</a></li>
           </ul>
         </div>
        
@@ -121,13 +97,20 @@
     <h2 id="h2id" display="none"></h2>
     <div
       class="gridEl"
-      style="display: grid; grid-template-columns: 1fr 2fr; margin: 50px"
+      style="display: grid; grid-template-columns: 1fr 3fr 3fr; margin: 50px; gap:20px"
     >
+    <div style="display: flex; flex-direction: column; gap:10px">
+      <div class="images_hp"><img src="./img/hp items/item1.jpg" style="width:40%"></div>
+      <div class="images_hp"><img src="./img/hp items/item2.jpg" style="width:40%"></div>
+      <div class="images_hp"><img src="./img/hp items/item3.jpg" style="width:40%"></div>
+      <div class="images_hp"><img src="./img/hp items/item4.jpg" style="width:40%"></div>
+      <div class="images_hp"><img src="./img/hp items/item5.jpg" style="width:40%"></div>  
+      </div>
       <div id="picture">
         <h3 id="sold" style="color: red; display: none">
-          The item is anavaliable!
+          The item is unavaliable!
         </h3>
-        <img src="./img/labtop/labtop.jpg" style="width: 50%" />
+        <img src="./img/labtop/labtop.png" style="width: 50%" />
         <div>$50/ticket</div>
         <div>Total number of Tickets: <label>10</label></div>
         <div>Avalible Tickets: <label class="avaliable">10</label></div>
@@ -147,7 +130,7 @@
           type="text"
           placeholder="Number of ticket"
           ;
-        /><br />
+        /> <label id="label_invalid" style="color:red; display:none">Invalid input</label><br />
         <div>
           <button
             onclick="buyticket()"
@@ -162,5 +145,8 @@
       <div></div>
     </div>
     
+    
+    <script src="event.js"></script>
+    <script src="script_item.js"></script>
   </body>
 </html>

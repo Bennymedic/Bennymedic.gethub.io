@@ -71,3 +71,13 @@ html, body {
     float: none;
     }
   }
+  /* #incorrect_user{
+    display:none;
+    color:red;
+    font-size: 18px;
+  }
+  #incorrect_pass{
+    color:red;
+    font-size: 18px;
+
+  } */

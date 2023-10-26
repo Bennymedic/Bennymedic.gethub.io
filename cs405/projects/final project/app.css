@@ -1,9 +1,10 @@
-.welcome{
-    margin-top:-40%; 
-    margin-left:10%; 
-    color:rgb(0, 214, 18); 
-    font-weight: bolder; 
-    width:min-content
+#user_name{
+  font-size: 20px; 
+  font-weight: bolder;
+  border:1px solid black; 
+  padding: 10px; 
+  border-radius: 30px;
+  background-color: rgb(226, 172, 37);
 }
 .items_list{
     display:flex;
@@ -24,6 +25,7 @@
     padding:20px;
     box-shadow: 10px 5px 5px;
     border-radius: 10px;
+    line-height: 2;
 
 }
 #numticket{
