@@ -133,11 +133,25 @@ console.log(calcDownPayment());
 
 //Question 6
 function calcSum() {
-  const inputNum = prompt("Please enter a number: ");
-  let sum = 0;
-  for (let ele of inputNum) {
-    sum += Number(ele);
-  }
+  const inputNum = +(prompt("Please enter a number: "));
+  let sum = Math.floor(inputNum / 10) + (inputNum % 10);
   return sum;
 }
 console.log(calcSum());
+//or
+// function calcSum() {
+//     const inputNum = prompt("Please enter a number: ");
+//     let sum = 0;
+//     for (let ele of inputNum) {
+//       sum += Number(ele);
+//     }
+//     return sum;
+//   }
+//   console.log(calcSum());
+
+
+/* 
+input: number
+output: true of false
+steps: loop from 2 to number -1 and check if the reminder is 0
+*/
