@@ -1,32 +1,34 @@
-function salesCommision(isSaleried, sales){
-    const minSales = 300;
-    const maxSales =500;
-    const minRate = 0.01;
-    const midRate =0.02;
-    const maxRate =0.03;
-    let commision = null;
-    if(sales < minSales){
-            commision = 0;
-            return commision;
-        }
-    if(isSaleried === true){
-        if(sales<=maxSales && sales >=minSales){
-            commision = sales * midRate;
-        }
-        else{
-            commision = sales * midRate;
-        }
-    }
-    else{
-        if(sales<=maxSales && sales >=minSales){
-            commision = sales * midRate;
-        }
-        else{
-            commision = sales * maxRate;
-        }
-    }
-    return commision;
+function computeSalesCommission(isSaleried, sales){
+  const minSales = 300;
+  const maxSales =500;
+  const minRate = 0.01;
+  const midRate =0.02;
+  const maxRate =0.03;
+  let commision = null;
+  if(sales < minSales){
+          commision = 0;
+          return commision;
+      }
+  if(isSaleried){
+      if(sales<maxSales && sales >=minSales){
+          commision = sales * minRate;
+      }
+      else{
+          commision = (minRate * maxSales) + (sales - maxSales) * midRate;
+      }
+  }
+  else{
+      if(sales<=maxSales && sales >=minSales){
+          commision = sales * midRate;
+      }
+      else{
+          commision = (midRate * maxSales) + (sales - maxSales) * maxRate;
+      }
+  }
+  return commision;
 }
+
+
 
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -52,31 +54,32 @@ function salesCommision(isSaleried, sales){
 //                          ______ ______ ______ ______ ______
 //                         |______|______|______|______|______|
 
+
+
 mocha.setup("bdd");
 const { assert } = chai;
 
-describe("salesCommision", () => {
-  it('if the isSaleried true and sale is 200 the expected value is 0', () => {
-    assert.equal(salesCommision(true, 200), 0);
+describe("computeSalesCommission", () => {
+  it("expect 0: ", () => {
+    assert.equal(computeSalesCommission(true, 200), 0);
   });
-  it('"   bcb" is not a palindrome', () => {
-    assert.equal(palindrome(" bcb"), false);
+  it("expect 0: ", () => {
+    assert.equal(computeSalesCommission(false, 200), 0);
   });
-  it('"bcb   " is not a palindrome', () => {
-    assert.equal(palindrome("bcb "), false);
+  it("expect 3: ", () => {
+    assert.equal(computeSalesCommission(true, 300), 3);
   });
-  it('"love" is not a palindrome', () => {
-    assert.equal(palindrome("love"), false);
+  it("expect 6: ", () => {
+    assert.equal(computeSalesCommission(false, 300), 6);
   });
-  it('"699996" a palindrome', () => {
-    assert.equal(palindrome("699996"), true);
+
+  it("expect 65: ", () => {
+    assert.equal(computeSalesCommission(true, 3500), 65);
   });
-  it('"racecar" a palindrome', () => {
-    assert.equal(palindrome("bcb"), true);
+  it("expect 100: ", () => {
+    assert.equal(computeSalesCommission(false, 3500), 100);
   });
-  it("is case insensitive.", () => {
-    assert.equal(palindrome("Trunk knurt"), true);
-  });
+  
 });
 
 mocha.run();
