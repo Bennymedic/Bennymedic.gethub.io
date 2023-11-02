@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Debug TypeScript",
+          "runtimeArgs": [
+              "-r",
+              "ts-node/register"
+          ],
+          "args": [
+              "${src}./compound.ts"
+          ],
+          "sourceMaps": true,
+          "cwd": "${workspaceFolder}",
+          "protocol": "inspector",
+          "console": "integratedTerminal"
+      }
+  ]
+}
