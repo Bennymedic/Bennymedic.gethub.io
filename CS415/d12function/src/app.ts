@@ -94,16 +94,16 @@ console.log("expect 100: ", computeSalesCommission(false, 3500));
 
 
 // //Question 4
-// //Sum digit
-// function sumDigits(int:number):number {
-//   let sum = 0;
-//   while (int > 0) {
-//     sum += int % 10;
-//     int = Math.floor(int / 10);
-//   }
-//   return sum;
-// }
-// console.log(sumDigits(102));
+//Sum digit
+function sumDigits(int:number):number {
+  let sum = 0;
+  while (int > 0) {
+    sum += int % 10;
+    int = Math.floor(int / 10);
+  }
+  return sum;
+}
+console.log(sumDigits(102));
 
 // // //Mult digit
 // function multDigits(int:number):number {
