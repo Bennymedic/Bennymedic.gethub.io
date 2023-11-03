@@ -5,6 +5,7 @@ function calcCompoundInterest(deposit: number, rate: number, years: number) {
   for (let i = 1; i <= numPayments; i--) {
     balance = balance + balance * monthlyRate;
     // debugger;
+    console.log("balnce is " + balance)
   }
   return balance;
 }
