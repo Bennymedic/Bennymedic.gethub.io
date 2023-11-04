@@ -1,39 +1,39 @@
 // Question 1
-function computeSalesCommission(isSaleried:boolean, sales:number):number{
-    const minSales = 300;
-    const maxSales =500;
-    const minRate = 0.01;
-    const midRate =0.02;
-    const maxRate =0.03;
-    let commision = null;
-    if(sales < minSales){
-            commision = 0;
-            return commision;
-        }
-    if(isSaleried){
-        if(sales<maxSales && sales >=minSales){
-            commision = sales * minRate;
-        }
-        else{
-            commision = (minRate * maxSales) + (sales - maxSales) * midRate;
-        }
-    }
-    else{
-        if(sales<=maxSales && sales >=minSales){
-            commision = sales * midRate;
-        }
-        else{
-            commision = (midRate * maxSales) + (sales - maxSales) * maxRate;
-        }
-    }
-    return commision;
-}
-console.log("expect 0: ", computeSalesCommission(true, 200));
-console.log("expect 0: ", computeSalesCommission(false, 200));
-console.log("expect 3: ", computeSalesCommission(true, 300));
-console.log("expect 6: ", computeSalesCommission(false, 300));
-console.log("expect 65: ", computeSalesCommission(true, 3500));
-console.log("expect 100: ", computeSalesCommission(false, 3500));
+// function computeSalesCommission(isSaleried:boolean, sales:number):number{
+//     const minSales = 300;
+//     const maxSales =500;
+//     const minRate = 0.01;
+//     const midRate =0.02;
+//     const maxRate =0.03;
+//     let commision = 0;
+//     if(sales < minSales){
+//             commision = 0;
+//             return commision;
+//         }
+//     if(isSaleried){
+//         if(sales<maxSales && sales >=minSales){
+//             commision = sales * minRate;
+//         }
+//         else{
+//             commision = (minRate * maxSales) + (sales - maxSales) * midRate;
+//         }
+//     }
+//     else{
+//         if(sales<=maxSales && sales >=minSales){
+//             commision = sales * midRate;
+//         }
+//         else{
+//             commision = (midRate * maxSales) + (sales - maxSales) * maxRate;
+//         }
+//     }
+//     return commision;
+// }
+// console.log("expect 0: ", computeSalesCommission(true, 200));
+// console.log("expect 0: ", computeSalesCommission(false, 200));
+// console.log("expect 3: ", computeSalesCommission(true, 300));
+// console.log("expect 6: ", computeSalesCommission(false, 300));
+// console.log("expect 65: ", computeSalesCommission(true, 3500));
+// console.log("expect 100: ", computeSalesCommission(false, 3500));
 
 
 // // //Question 2
@@ -95,15 +95,15 @@ console.log("expect 100: ", computeSalesCommission(false, 3500));
 
 // //Question 4
 //Sum digit
-function sumDigits(int:number):number {
-  let sum = 0;
-  while (int > 0) {
-    sum += int % 10;
-    int = Math.floor(int / 10);
-  }
-  return sum;
-}
-console.log(sumDigits(102));
+// function sumDigits(int:number):number {
+//   let sum = 0;
+//   while (int > 0) {
+//     sum += int % 10;
+//     int = Math.floor(int / 10);
+//   }
+//   return sum;
+// }
+// console.log(sumDigits(102));
 
 // // //Mult digit
 // function multDigits(int:number):number {
@@ -131,3 +131,41 @@ console.log(sumDigits(102));
 //     return distance;
 // }
 // console.log("expect 7.07 : ", calcDistance (0, 0, 5, 5));
+
+// function calcDifference(highTemp:number[], lowTemp:number[]):number[][]{
+//     let difference = 0;
+//     if(highTemp.length !== lowTemp.length){
+//         return 0;
+//     }
+//     for (let i = 0; i < highTemp.length; i++){
+//         if (highTemp[i] > lowTemp[i]){
+//             difference += (highTemp[i] - lowTemp[i])
+//         }else{
+//             difference++;
+//         }
+//     }
+//     return difference;
+
+// }
+// console.log(calcDifference([80, 78, 82], [50, 48, 52]))
+
+// function matrixMatch(arr1:number[][], arr2:number[][]):number[][]{
+//     let testArr:number[][] = [];
+//     for (let i = 0; i < arr1.length; i++){
+//         testArr.push([]);
+//         for (let j = 0; j < arr1[i].length; j++){
+//             if (arr1[i][j] === arr2[i][j]){
+//                 testArr[i].push(1)
+//             }
+//             else{
+//                 testArr[i].push(0);
+//             }
+//         }
+//     }
+//     return testArr;
+// }
+// const testArr1 = [ [1,2,3], [5,2,3], [9,2,3] ]
+// const testArr2 = [ [1, 2, 10], [3, 2, 5], [9, 6, 7]]
+// console.log(matrixMatch(testArr1, testArr2)) 
+
+// //→ [ [1, 1, 0] , [0, 1, 0], [1, 0, 0] ]
