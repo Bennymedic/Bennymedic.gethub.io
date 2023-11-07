@@ -121,10 +121,17 @@ export function scramble() {
     console.log("implement scramble if you have time ...");
     const titles = findTitles();
     /*need to sort and then join the titles by their length (e.g., someArray.join("\n")  */
-    titles.join(' ').split(' ');
-    titles.sort((a, b) => a.length - b.length);
-    ;
-    const titleString = titles.join("\n");
+    let titleSplit = titles.join(" ").split(" ");
+    titleSplit.sort((a, b) => a.length - b.length);
+    let titleString = titleSplit[0];
+    for (let i = 1; i < titleSplit.length; i++) {
+        if (titleSplit[i].length === titleSplit[i - 1].length) {
+            titleString += " " + titleSplit[i];
+        }
+        else {
+            titleString += "\n" + titleSplit[i];
+        }
+    }
     let textArea = document.getElementById("displayArea");
     if (textArea) {
         textArea.innerHTML = titleString;
