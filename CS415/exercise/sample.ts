@@ -1,28 +1,28 @@
-function getMaxSubSum(arr:number[]):number{
-    let sum:number = arr[0];
-    for (let i =0; i< arr.length; i++){
-        if(arr[i] > sum){
-            sum = arr[i];
-        }
-        for (let j =i+1; j< arr.length; j++){
-            if((arr[i] + arr[j]) > sum ){
-                sum = arr[i] + arr[j];
-            }
-        }
+function getMaxSubSum(arr: number[]): number {
+  let sum: number = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > sum) {
+      sum = arr[i];
     }
-    return sum;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] > sum) {
+        sum = arr[i] + arr[j];
+      }
+    }
+  }
+  return sum;
 }
-console.log(getMaxSubSum([-1, 2, 3, -9]))
-const elements = ["I", "m", "n"]
-function printArr(arr:string[]):number{
-let count =0;
-for(let i= 0; i< arr.length; i++){
-console.log(arr[i]);
-count++;
+console.log(getMaxSubSum([-1, 2, 3, -9]));
+const elements = ["I", "m", "n"];
+function printArr(arr: string[]): number {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+    count++;
+  }
+  return count;
 }
-return count;
-}
-printArr(elements)
+printArr(elements);
 //getMaxSubSum([-1, 2, 3, -9]) == 5 (the sum of highlighted items)
 
 // function cube(num: number): number { return num * num * num; };
@@ -48,3 +48,28 @@ printArr(elements)
 // });
 
 // })
+
+type Obj = {
+  studentId: number;
+  quizAnswers: number[];
+};
+const student1: Obj = { studentId: 101, quizAnswers: [1, 1, 2, 4] };
+const student2: Obj = { studentId: 102, quizAnswers: [3, 1, 3, 4] };
+const student: Obj[] = [student1, student2];
+const score = [3, 1, 2, 4];
+function computeStudentScore(student: Obj[], score: number[]): number {
+  let correctAnswers:number[][] = [];
+
+  for (let i = 0; i< student.length; i++ ) {
+    correctAnswers.push([]);
+    for (let j = 0; j < score.length; j++) {
+      if (student[i].quizAnswers[j] === score[j]) {
+        correctAnswers[i].push(1);
+      }else{
+        
+      }
+    }
+  }
+
+  return correctAnswers;
+}
