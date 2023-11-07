@@ -27,12 +27,16 @@
 
     <button type="button"  id="addBtn">Add book to library</button>
     <button type="button"  id="titlesBtn">Show titles</button>
+    <button type="button"  id="authorBtn">Show author</button>
+    <button type="button"  id="liberaryIDbtn">Show liberaryID</button>
     <button type="button"  id="scrambleBtn" >Scramble</button>
 
     <script type="module">
-      import {addBook, showTitles, scramble} from "./dist/src/book.js"     
+      import {addBook, showTitles, showID, showAuthor, scramble} from "./dist/src/book.js"     
       document.querySelector('#addBtn').addEventListener('click', addBook)
       document.querySelector('#titlesBtn').addEventListener('click', showTitles)
+      document.querySelector('#liberaryIDbtn').addEventListener('click', showID)
+      document.querySelector('#authorBtn').addEventListener('click', showAuthor)
       document.querySelector('#scrambleBtn').addEventListener('click', scramble)
     </script>
 

@@ -26,6 +26,30 @@ export function showTitles() {
         textArea.innerHTML = titleString;
     }
 }
+export function showAuthor() {
+    /* this function is complete, no need to modify.  Inspect it as an example for the other functions. */
+    /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
+    const authors = findAuthors();
+    /*need to sort and then join the titles still (e.g., someArray.join("\n")  */
+    authors.sort();
+    const authorString = authors.join("\n");
+    let textArea = document.getElementById("displayArea");
+    if (textArea) {
+        textArea.innerHTML = authorString;
+    }
+}
+export function showID() {
+    /* this function is complete, no need to modify.  Inspect it as an example for the other functions. */
+    /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
+    const id = findIDs();
+    /*need to sort and then join the titles still (e.g., someArray.join("\n")  */
+    id.sort();
+    const idString = id.join("\n");
+    let textArea = document.getElementById("displayArea");
+    if (textArea) {
+        textArea.innerHTML = idString;
+    }
+}
 /**
  *
  * @return {object} array holding all titles as elements
@@ -44,19 +68,17 @@ export function findTitles() {
  * Event handler for Add book button.  Creates and adds book to the library
  */
 export function addBook() {
-    // let title: HTMLInputElement  = document.getElementById("title") as HTMLInputElement;
-    // let author: HTMLInputElement  = document.getElementById("author") as HTMLInputElement;
-    // let libraryID: HTMLInputElement = document.getElementById("libraryID") as HTMLInputElement;
-    // let titleValue = title.value;
-    // let authorValue = author.value;
-    // let libraryidValue = +libraryID.value;
-    // let newlyAddedBook:Book = createBook(titleValue, authorValue, libraryidValue);
-    // console.log(newlyAddedBook);
-    // console.log(findAuthors());
+    let title = document.getElementById("title");
+    let author = document.getElementById("author");
+    let libraryID = document.getElementById("libraryID");
+    let titleValue = title.value;
+    let authorValue = author.value;
+    let libraryidValue = +libraryID.value;
+    let newlyAddedBook = createBook(titleValue, authorValue, libraryidValue);
+    console.log(newlyAddedBook);
+    console.log(findAuthors());
     console.log("finish the implementation -- get the author, create a book object, and add to the library array!!");
 }
-// let addBtn: HTMLInputElement | null = document.getElementById("addBtn") as HTMLInputElement;
-// addBtn.addEventListener('click', addBook);
 /**
  *
  * @returns {string[]} find all  authors in libraryBooks and return them in alphabetically ordered array.
@@ -97,4 +119,14 @@ export function createBook(title, author, libraryID) {
  */
 export function scramble() {
     console.log("implement scramble if you have time ...");
+    const titles = findTitles();
+    /*need to sort and then join the titles by their length (e.g., someArray.join("\n")  */
+    titles.join(' ').split(' ');
+    titles.sort((a, b) => a.length - b.length);
+    ;
+    const titleString = titles.join("\n");
+    let textArea = document.getElementById("displayArea");
+    if (textArea) {
+        textArea.innerHTML = titleString;
+    }
 }
