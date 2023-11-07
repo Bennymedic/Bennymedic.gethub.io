@@ -1,6 +1,6 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 // import { assert } from "chai";
-import { findTitles, findAuthors, findIDs, createBook } from "../src/book.js"; //import all of the app.js functions used in the Mocha tests
+import { library, findTitles, findAuthors, findIDs, createBook } from "../src/book.js"; //import all of the app.js functions used in the Mocha tests
 /*
 Write a JavaScript program that will accept title, author, and libraryID values from an HTML page and create new book objects for each entry.
 •	Before creating the webpage first write and test the following JavaScript functions:
@@ -12,11 +12,11 @@ o	findIDs, which will find all the libraryIDs in libraryBooks and return them in
 */
 describe("library", function () {
     //This should be used as the "library database" for testing--included in app.js
-    let library = [
-        { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
-        { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
-        { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
-    ];
+    // let library: Book[] = [
+    //     { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
+    //     { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
+    //     { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
+    // ];
     const titles = ["Mockingjay: The Final Book of The Hunger Games", "The Road Ahead", "Walter Isaacson"];
     const authors = ["Bill Gates", "Steve Jobs", "Suzanne Collins"];
     const ids = [1254, 3245, 4264];

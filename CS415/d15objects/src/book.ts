@@ -60,8 +60,20 @@ export function findTitles(): string[] {
  */
 export function addBook():  void {
 
+    // let title: HTMLInputElement  = document.getElementById("title") as HTMLInputElement;
+    // let author: HTMLInputElement  = document.getElementById("author") as HTMLInputElement;
+    // let libraryID: HTMLInputElement = document.getElementById("libraryID") as HTMLInputElement;
+
+    // let titleValue = title.value;
+    // let authorValue = author.value;
+    // let libraryidValue = +libraryID.value;
+    // let newlyAddedBook:Book = createBook(titleValue, authorValue, libraryidValue);
+    // console.log(newlyAddedBook);
+    // console.log(findAuthors());
     console.log("finish the implementation -- get the author, create a book object, and add to the library array!!");
 }
+// let addBtn: HTMLInputElement | null = document.getElementById("addBtn") as HTMLInputElement;
+// addBtn.addEventListener('click', addBook);
 
 /**
  * 

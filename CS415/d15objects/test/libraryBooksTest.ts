@@ -17,11 +17,11 @@ o	findIDs, which will find all the libraryIDs in libraryBooks and return them in
 describe("library", function () {
 
     //This should be used as the "library database" for testing--included in app.js
-    let library: Book[] = [
-        { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
-        { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
-        { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
-    ];
+    // let library: Book[] = [
+    //     { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
+    //     { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
+    //     { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
+    // ];
 
     const titles = ["Mockingjay: The Final Book of The Hunger Games", "The Road Ahead", "Walter Isaacson"];
     const authors = ["Bill Gates", "Steve Jobs", "Suzanne Collins"];

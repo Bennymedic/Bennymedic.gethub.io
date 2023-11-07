@@ -44,8 +44,19 @@ export function findTitles() {
  * Event handler for Add book button.  Creates and adds book to the library
  */
 export function addBook() {
+    // let title: HTMLInputElement  = document.getElementById("title") as HTMLInputElement;
+    // let author: HTMLInputElement  = document.getElementById("author") as HTMLInputElement;
+    // let libraryID: HTMLInputElement = document.getElementById("libraryID") as HTMLInputElement;
+    // let titleValue = title.value;
+    // let authorValue = author.value;
+    // let libraryidValue = +libraryID.value;
+    // let newlyAddedBook:Book = createBook(titleValue, authorValue, libraryidValue);
+    // console.log(newlyAddedBook);
+    // console.log(findAuthors());
     console.log("finish the implementation -- get the author, create a book object, and add to the library array!!");
 }
+// let addBtn: HTMLInputElement | null = document.getElementById("addBtn") as HTMLInputElement;
+// addBtn.addEventListener('click', addBook);
 /**
  *
  * @returns {string[]} find all  authors in libraryBooks and return them in alphabetically ordered array.
