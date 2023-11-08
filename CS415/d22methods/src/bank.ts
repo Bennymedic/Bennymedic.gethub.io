@@ -56,8 +56,8 @@ bank.credit = function (customerId: number, amount: number): void {
 bank.getBalance = function (customerId: number): number {
   let sum = 0;
   const transactions = bank.transactionsDB[customerId - 1].customerTransactions;
-  for (const ele of transactions) {
-    sum += ele;
+  for (const transaction of transactions) {
+    sum += transaction;
   }
   return sum;
 };
@@ -66,8 +66,8 @@ bank.bankBalance = function (): number {
   let sum = 0;
   for (let i = 0; i < bank.transactionsDB.length; i++) {
     let transactions = bank.transactionsDB[i].customerTransactions;
-    for (const ele of transactions) {
-      sum += ele;
+    for (const transaction of transactions) {
+      sum += transaction;
     }
   }
   return sum;

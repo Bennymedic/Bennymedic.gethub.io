@@ -71,8 +71,8 @@ export function showID(): void {
 export function findTitles(): string[] {
 
     let title:string[] = [];
-    for (let ele of library){
-        title.push(ele.title)
+    for (const book of library){
+        title.push(book.title)
     }
     //fix this to work according to the specs
 
@@ -108,8 +108,8 @@ export function addBook():  void {
 export function findAuthors(): string[] {
     //implement this
     let author:string[] = [];
-    for (let ele of library){
-        author.push(ele.author)
+    for (const book of library){
+        author.push(book.author)
     }
     return author.sort();
 }
@@ -121,8 +121,8 @@ export function findAuthors(): string[] {
 export function findIDs(): number[] {
     //implement this
     let libraryIDs:number[] = [];
-    for (let ele of library){
-        libraryIDs.push(ele.libraryID)
+    for (const book of library){
+        libraryIDs.push(book.libraryID)
     }
     return libraryIDs.sort();
 }

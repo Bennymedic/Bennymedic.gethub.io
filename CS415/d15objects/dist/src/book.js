@@ -56,8 +56,8 @@ export function showID() {
  */
 export function findTitles() {
     let title = [];
-    for (let ele of library) {
-        title.push(ele.title);
+    for (const book of library) {
+        title.push(book.title);
     }
     //fix this to work according to the specs
     // let titles = ["This is a test title", "Another test title", "And another test title for good measure"];  
@@ -86,8 +86,8 @@ export function addBook() {
 export function findAuthors() {
     //implement this
     let author = [];
-    for (let ele of library) {
-        author.push(ele.author);
+    for (const book of library) {
+        author.push(book.author);
     }
     return author.sort();
 }
@@ -98,8 +98,8 @@ export function findAuthors() {
 export function findIDs() {
     //implement this
     let libraryIDs = [];
-    for (let ele of library) {
-        libraryIDs.push(ele.libraryID);
+    for (const book of library) {
+        libraryIDs.push(book.libraryID);
     }
     return libraryIDs.sort();
 }
