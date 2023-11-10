@@ -5,10 +5,10 @@ export const calculator = {
         this.operand1 = operand1;
         this.operand2 = operand2;
     },
-    sum(){
+    sum():number{
         return this.operand1 + this.operand2;
     },
-    mul (){
+    mul():number{
         return this.operand1 * this.operand2;
     }
 };  
