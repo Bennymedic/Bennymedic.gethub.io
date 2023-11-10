@@ -47,23 +47,16 @@ export function truncate(str, maxlength) {
  
  */
 export function getMaxSubSum(arr) {
-    let maxSum = -Infinity;
-    let sum = 0;
+    let maxSum = 0;
     for (let i = 0; i < arr.length; i++) {
-        sum = 0;
+        let sum = 0;
         for (let j = i; j < arr.length; j++) {
             sum += arr[j];
-            if (maxSum < sum) {
-                maxSum = sum;
-            }
+            maxSum = Math.max(maxSum, sum);
         }
-    }
-    if (arr.length === 0 || maxSum < 0) {
-        maxSum = 0;
     }
     return maxSum;
 }
-console.log(getMaxSubSum([1, 2, 3]));
 export function camelize(str) {
     let result = "";
     for (let i = 0; i < str.length; i++) {
