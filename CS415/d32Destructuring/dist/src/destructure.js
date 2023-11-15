@@ -6,15 +6,15 @@ P.S. Use Object.entries and destructuring to iterate over key/value pairs.
 */
 export function topSalary(salaries) {
     let maxSalary = -Infinity;
-    // let maxName: string = '';
+    let maxName = '';
     if (Object.keys(salaries).length === 0) {
         return "none";
     }
-    for (let [_name, salary] of Object.entries(salaries)) {
+    for (let [name, salary] of Object.entries(salaries)) {
         if (maxSalary < salary) {
             maxSalary = salary;
-            // maxName = name;
+            maxName = name;
         }
     }
-    return maxSalary;
+    return maxName;
 }
