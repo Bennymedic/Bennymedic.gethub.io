@@ -23,11 +23,15 @@ type Calculator = {
 }
 export const calculator: Calculator = {
 
-    methods: {
+    this.methods= {
         "-": (a, b) => a - b,
         "+": (a, b) => a + b,
     },
-
+    this.calculate(str:string):number{
+        const splitted = str.split(' ');
+        a = +splitted[0];
+        if
+    }
 
 }
 

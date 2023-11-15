@@ -58,75 +58,75 @@
 //     const newArr = [...arr];
 //     newArr.splice(1,arr.length-2, num)
 //     return newArr;
+// // }
+// // const arrs = [1, 2, 3, 4, 5];
+// // console.log(removeArr(arrs,999))
+
+// // const result = removeArr(arrs, 999);
+// // console.log("expect [1, 999, 5]: ", result);
+// // const result2 = removeArr(arrs, 1234);
+// // console.log("expect [1, 1234, 5]: ", result2);
+// // console.log("expect [1, 2, 3, 4, 5]: ", arrs);
+
+// // // // use filter, find, and findIndex to find
+// // // // ➢
+// // // // all the even numbers
+// // // // ➢
+// // // // the first even number
+// // // // ➢
+// // // // the index of the first even number
+
+// const numbers = [1,5,18,2,77,108];
+
+// const evenNum = numbers.findIndex((num):boolean=>{
+//    return num > 100 && num % 2 === 0;
+// });
+// console.log(evenNum, evenNum, numbers)
+
+// const array123 = [1, 2, 3]
+// const square = array123.map((num)=>num * num);
+// console.log(square)
+
+// //map method
+// let lengths = ["Bilbo", "Gandalf", "Nazgul"];
+// console.log(lengths); // [5,7,6]
+// //modify so that it logs array with index: item.length instead of just item.length
+// console.log("expect [0: 5, 1: 7, 2: 6]", lengths);
+
+// let modifyLength = lengths.map((ele:string, index:number):string=> index + ": " + ele.length)
+// console.log(modifyLength);
+
+// const player1 = {name: "Bob", points: [1, 2, 1]};
+// const player2 = {name: "Andre", points: [2, 0, 1]};
+// const player3 = {name: "Max", points: [1, 1, 1]};
+// const players = [player1, player2, player3];
+// // console.log("expect [1.33, 1, 1 ]: ", averagePoints (players));
+// //console.log("expect [{Bob:1.33, Andre:1, Max:1} ]: ", averagePoints (players));
+
+// type AveragePointsResult = {
+//   [playerName: string]: number;
+// };
+// type User = {
+//   name: string,
+//   points: number[]
 // }
-// const arrs = [1, 2, 3, 4, 5];
-// console.log(removeArr(arrs,999))
-
-// const result = removeArr(arrs, 999);
-// console.log("expect [1, 999, 5]: ", result);
-// const result2 = removeArr(arrs, 1234);
-// console.log("expect [1, 1234, 5]: ", result2);
-// console.log("expect [1, 2, 3, 4, 5]: ", arrs);
-
-// // // use filter, find, and findIndex to find
-// // // ➢
-// // // all the even numbers
-// // // ➢
-// // // the first even number
-// // // ➢
-// // // the index of the first even number
-
-const numbers = [1,5,18,2,77,108];
-
-const evenNum = numbers.findIndex((num):boolean=>{
-   return num > 100 && num % 2 === 0;
-});
-console.log(evenNum, evenNum, numbers)
-
-const array123 = [1, 2, 3]
-const square = array123.map((num)=>num * num);
-console.log(square)
-
-//map method
-let lengths = ["Bilbo", "Gandalf", "Nazgul"];
-console.log(lengths); // [5,7,6]
-//modify so that it logs array with index: item.length instead of just item.length
-console.log("expect [0: 5, 1: 7, 2: 6]", lengths);
-
-let modifyLength = lengths.map((ele:string, index:number):string=> index + ": " + ele.length)
-console.log(modifyLength);
-
-const player1 = {name: "Bob", points: [1, 2, 1]};
-const player2 = {name: "Andre", points: [2, 0, 1]};
-const player3 = {name: "Max", points: [1, 1, 1]};
-const players = [player1, player2, player3];
-// console.log("expect [1.33, 1, 1 ]: ", averagePoints (players));
-//console.log("expect [{Bob:1.33, Andre:1, Max:1} ]: ", averagePoints (players));
-
-type AveragePointsResult = {
-  [playerName: string]: number;
-};
-type User = {
-  name: string,
-  points: number[]
-}
-function averagePoints(player:User[]):AveragePointsResult[]{
-    let sum =0;
-    let ave:number = 0;
-    let result:AveragePointsResult[] = []
-    for(const ele of player){
-      let averages: AveragePointsResult = {};
-        sum = 0;
-        for (const value of ele.points){
-            sum += value;
-        }
-        ave = +((sum /ele.points.length).toFixed(1));
-        averages[ele.name] = ave;
-        result.push(averages);
-    }
-    return result;
-}
-console.log("Expect { Bob: 1.3333333333333333, Andre: 1, Max: 1 }:", averagePoints(players));
+// function averagePoints(player:User[]):AveragePointsResult[]{
+//     let sum =0;
+//     let ave:number = 0;
+//     let result:AveragePointsResult[] = []
+//     for(const ele of player){
+//       let averages: AveragePointsResult = {};
+//         sum = 0;
+//         for (const value of ele.points){
+//             sum += value;
+//         }
+//         ave = +((sum /ele.points.length).toFixed(1));
+//         averages[ele.name] = ave;
+//         result.push(averages);
+//     }
+//     return result;
+// }
+// console.log("Expect { Bob: 1.3333333333333333, Andre: 1, Max: 1 }:", averagePoints(players));
 // Using a regular for...of loop
 // function averagePoints(players: Player[]): AveragePointsResult {
 //   const averages: AveragePointsResult = {};
@@ -350,3 +350,200 @@ console.log("Expect { Bob: 1.3333333333333333, Andre: 1, Max: 1 }:", averagePoin
 //     }
 // let newArr = propertyOrder.slice();
 // console.log(newArr)
+
+// //  const result = replaceInterior(arr, 999);
+// function replaceInterior(arr:number[], first:number, last:number):number[]{
+//   const newArr = arr.slice();
+//   newArr.splice(0, 1, first);
+//   newArr.splice(newArr.length-1, 1, last)
+//   return newArr;
+// }
+// const arr = [1, 2, 3, 4, 5];
+// console.log(replaceInterior(arr, 0, 888))
+
+// //4
+
+// // function firstLast(arr:string[]):Name[]{
+// //   const result:Name[] = [];
+// //   for(const name of arr){
+// //     let splitted = name.split(' ');
+// //     let fn = splitted[0];
+// //     let ln = splitted[1];
+// //     let nameObj: Name = {firstName: fn, lastName: ln};
+// //     result.push(nameObj);
+// //   }
+// //   return result;
+// // }
+
+//4
+type Name ={
+  firstName: string,
+  lastName: string
+}
+function firstLast(arr:string[]):Name[]{
+  const result = arr.map(name => {
+   let nameObj: Name = {firstName: name.split(' ')[0], lastName: name.split(' ')[1]};
+   return nameObj;
+  }) 
+  
+  return result;
+}
+const names = ['Menge Smith', 'Wengel Negewo', 'Tedy Beni']
+console.log(firstLast(names))
+
+//5
+function replaceInterior(arr:number[], first:number, last:number):number[]{
+  const newArr = arr.slice();
+  newArr.splice(0, 1, first);
+  newArr.splice(newArr.length-1, 1, last)
+  return newArr;
+}
+const arr = [1, 2, 3, 4, 5];
+console.log(replaceInterior(arr, 0, 888))
+
+//6
+function squares(num:number):number{
+  return num * num;
+}
+function cubes(num:number):number{
+  return num * num * num;
+}
+function foo(callback: (num:number)=>number, inputNum:number):number{
+  return callback(inputNum);
+}
+console.log(foo(squares, 5))
+console.log(foo(cubes, 5))
+
+// //7
+type Session= {
+  userId:number,
+  duration:number
+ 
+}
+type Day= {
+  date:string
+  sessions:Session[]
+}
+const session1 = { userId: 1, duration: 60 };
+const session2 = { userId: 2, duration: 45 };
+const session3 = { userId: 2, duration: 30 };
+const session4 = { userId: 3, duration: 15 };
+const session5 = { userId: 3, duration: 75 };
+const day1 = { sessions: [session1, session2], date: "01/10/2022" };
+const day2 = { sessions: [session3, session4, session5], date: "01/10/2022" };
+const dailyRecord = [day1, day2];
+ 
+//7b
+function calculateDailyTotalDuration(sessions:Session[]):number{
+  let sum=0;
+  for (const session of sessions){
+    sum+=session.duration;
+ 
+  }
+return sum;
+}
+
+//7c
+function calculateTotalDuration(dailyRecord:Day[]):number{
+  let total=0;
+  for(const day of dailyRecord){
+    total+=calculateDailyTotalDuration(day.sessions)
+  }
+  return total;
+}
+
+
+
+//7d
+function getAllSessions(dailyRecord:Day[]):Session[]{
+  let allSessions:Session[]=[];
+  for(const days of dailyRecord){
+    console.log(days.sessions)
+    allSessions=allSessions.concat(days.sessions)
+  }
+  return allSessions;
+ 
+}
+console.log(getAllSessions(dailyRecord))
+ 
+// //7e
+function getAllSessionsForUser(dailyRecord:Day[],userId:number):Session[]{
+  const allSessions= getAllSessions(dailyRecord);
+  const filtered=allSessions.filter(session=>session.userId===userId)
+  return filtered;
+}
+ 
+
+// //7f
+function getAllDurations(dailyRecord:Day[]):number[]{
+  const allSessions=getAllSessions(dailyRecord);
+  const allDuration=allSessions.map(session=>session.duration);
+  return allDuration;
+}
+
+// const newArr = array123.map(num=> num *2);
+// let array1234 = [1,2,3]
+// const newArrr = array1234.reduce((sum,current)=> sum + current, 0);
+// const sumWithInitial = array1.reduce(
+//   (accumulator, currentValue) => accumulator + currentValue,
+//   initialValue,
+// );
+
+// const player1 = {name: "Bob", points: [1, 2, 1]};
+// const player2 = {name: "Andre", points: [2, 0, 1]};
+// const player3 = {name: "Max", points: [1, 1, 1]};
+// const players = [player1, player2, player3];
+
+// console.log("expect 4:",  maxPoints(players));
+// type Player = {
+//   name:string,
+//   points:number[]
+// }
+// function maxPoints(player:Player):number{
+//   let total = 0;
+//   for(const point of player.points){
+//     total += point;
+//   }
+//   return total;
+// }
+//Use reduce to find the sum of an array.
+// Use reduce to find the largest element of an array.
+// [you may run out of time for these in the quiz, but they will be good 
+//   practice later for the exam. Note that there are 0 points in this quiz for this question.]
+let arr = [1,3,5];
+const sumArr = arr.reduce((sum,current)=> sum + current, 0);
+const largerArr = arr.reduce((acc, current)=> {
+  if (acc < current){
+    acc = current;
+  }
+  return acc;
+}, -Infinity);
+
+// const [bob, jim, carl] = ["BoB", "Jim", "Carl"]
+// console.log(bob, jim, carl)
+let str = ["BoB", "Jim", "Carl"];
+
+//join string
+let joinedStr = str.reduce((acc, current)=>{
+    acc += current;
+    return acc;
+},'');
+
+//reverse string
+let reversedStr = str.reduce((acc, current)=>{
+  acc = current + acc;              //acc = BoB + '',   acc = Jim + BoB,  acc = carl + Jim + BoB
+  return acc;
+},'');
+
+
+//length of array in array
+let lengthArr = str.reduce((acc:number[], current)=>{
+  acc = acc.concat(current.length);              
+  return acc;
+},[]);
+
+//expected output : "BoBJimCarl"
+let outputstr = [];
+for (let chr of str){
+  outputstr.push(chr);
+}
