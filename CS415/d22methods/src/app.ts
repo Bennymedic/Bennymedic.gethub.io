@@ -510,14 +510,14 @@ function getAllDurations(dailyRecord:Day[]):number[]{
 // Use reduce to find the largest element of an array.
 // [you may run out of time for these in the quiz, but they will be good 
 //   practice later for the exam. Note that there are 0 points in this quiz for this question.]
-let arr = [1,3,5];
-const sumArr = arr.reduce((sum,current)=> sum + current, 0);
-const largerArr = arr.reduce((acc, current)=> {
-  if (acc < current){
-    acc = current;
-  }
-  return acc;
-}, -Infinity);
+//  arr = [1,3,5];
+// const sumArr = arr.reduce((sum,current)=> sum + current, 0);
+// const largerArr = arr.reduce((acc, current)=> {
+//   if (acc < current){
+//     acc = current;
+//   }
+//   return acc;
+// }, -Infinity);
 
 // const [bob, jim, carl] = ["BoB", "Jim", "Carl"]
 // console.log(bob, jim, carl)
@@ -547,3 +547,88 @@ let outputstr = [];
 for (let chr of str){
   outputstr.push(chr);
 }
+
+//Write a function, flatten, that returns an array that has objects of the form {date: "...", id: 1, amt: 15} for all donations.
+flatten(dailyRecord) returns: [
+{ date: '01/10/2022', id: 1, amount: 100 },
+{ date: '01/10/2022', id: 2, amount: 10 },
+{ date: '01/11/2022', id: 3, amount: 1 },
+{ date: '01/11/2022', id: 2, amount: 5 },
+{ date: '01/11/2022', id: 1, amount: 15 }
+]
+
+const donation1 = { funderId: 1, amount: 100 };
+const donation2 = { funderId: 2, amount: 10 };
+const donation3 = { funderId: 3, amount: 1 };
+const donation4 = { funderId: 2, amount: 5 };
+const donation5 = { funderId: 1, amount: 15 };
+const day1 = { donations: [donation1, donation2], date: "01/10/2022", };
+const day2 = { donations: [donation3, donation4, donation5], date: "01/11/2022", };
+
+const dailyRecord = [day1, day2];
+
+
+type Donation = {
+  funderId: number;
+  amount: number;
+};
+type Dailydonation = {
+  donations: Donation[];
+  date: string;
+};
+type DailyAmount ={
+  date: string,
+  id: number,
+  amount:number
+
+}
+function flatten(dailyRecord:Dailydonation[]):DailyAmount[]{
+  const allDailyDonation:DailyAmount[]= []
+  for (const day of dailyRecord){
+    for(const donation of day.donations){
+      let dailyDonation = { date: day.date, id: donation.funderId, amount: donation.amount };
+      allDailyDonation.push(dailyDonation)
+    }   
+    
+  }
+  return allDailyDonation;
+}
+
+//myMap(arr, fun) 
+
+function myMap(arr:number[], func:(num:number)=>number):number[]{
+  let newArr = [];
+  for (const ele of arr){
+    let updatedEl = func(ele);
+    newArr.push(updatedEl)
+  }
+  return newArr
+}
+
+function squareaa(num:number):number{
+  return num* num;
+}
+
+myMap([1,2,3])
+
+function sum (a:number):(b:number)=>number{
+  return function (b){
+    return a + b;
+  }
+}
+
+type Num ={
+  x:number,
+  y:number
+}
+
+function smash(arr:Num[]):number[]{
+  const result = arr.map(ele => {
+    let {x, y}:{x:number, y:number} = ele;
+    return x + y;
+  });
+return result;
+}
+
+const bar = [{x:1, y:2}, {x:10, y:4}, {x:4, y:2}]
+console.log("expect [3, 14, 6]:", smash(bar));
