@@ -375,111 +375,111 @@
 // //   return result;
 // // }
 
-//4
-type Name ={
-  firstName: string,
-  lastName: string
-}
-function firstLast(arr:string[]):Name[]{
-  const result = arr.map(name => {
-   let nameObj: Name = {firstName: name.split(' ')[0], lastName: name.split(' ')[1]};
-   return nameObj;
-  }) 
+// //4
+// type Name ={
+//   firstName: string,
+//   lastName: string
+// }
+// function firstLast(arr:string[]):Name[]{
+//   const result = arr.map(name => {
+//    let nameObj: Name = {firstName: name.split(' ')[0], lastName: name.split(' ')[1]};
+//    return nameObj;
+//   }) 
   
-  return result;
-}
-const names = ['Menge Smith', 'Wengel Negewo', 'Tedy Beni']
-console.log(firstLast(names))
+//   return result;
+// }
+// const names = ['Menge Smith', 'Wengel Negewo', 'Tedy Beni']
+// console.log(firstLast(names))
 
-//5
-function replaceInterior(arr:number[], first:number, last:number):number[]{
-  const newArr = arr.slice();
-  newArr.splice(0, 1, first);
-  newArr.splice(newArr.length-1, 1, last)
-  return newArr;
-}
-const arr = [1, 2, 3, 4, 5];
-console.log(replaceInterior(arr, 0, 888))
+// //5
+// function replaceInterior(arr:number[], first:number, last:number):number[]{
+//   const newArr = arr.slice();
+//   newArr.splice(0, 1, first);
+//   newArr.splice(newArr.length-1, 1, last)
+//   return newArr;
+// }
+// const arr = [1, 2, 3, 4, 5];
+// console.log(replaceInterior(arr, 0, 888))
 
-//6
-function squares(num:number):number{
-  return num * num;
-}
-function cubes(num:number):number{
-  return num * num * num;
-}
-function foo(callback: (num:number)=>number, inputNum:number):number{
-  return callback(inputNum);
-}
-console.log(foo(squares, 5))
-console.log(foo(cubes, 5))
+// //6
+// function squares(num:number):number{
+//   return num * num;
+// }
+// function cubes(num:number):number{
+//   return num * num * num;
+// }
+// function foo(callback: (num:number)=>number, inputNum:number):number{
+//   return callback(inputNum);
+// }
+// console.log(foo(squares, 5))
+// console.log(foo(cubes, 5))
 
-// //7
-type Session= {
-  userId:number,
-  duration:number
+// // //7
+// type Session= {
+//   userId:number,
+//   duration:number
  
-}
-type Day= {
-  date:string
-  sessions:Session[]
-}
-const session1 = { userId: 1, duration: 60 };
-const session2 = { userId: 2, duration: 45 };
-const session3 = { userId: 2, duration: 30 };
-const session4 = { userId: 3, duration: 15 };
-const session5 = { userId: 3, duration: 75 };
-const day1 = { sessions: [session1, session2], date: "01/10/2022" };
-const day2 = { sessions: [session3, session4, session5], date: "01/10/2022" };
-const dailyRecord = [day1, day2];
+// }
+// type Day= {
+//   date:string
+//   sessions:Session[]
+// }
+// const session1 = { userId: 1, duration: 60 };
+// const session2 = { userId: 2, duration: 45 };
+// const session3 = { userId: 2, duration: 30 };
+// const session4 = { userId: 3, duration: 15 };
+// const session5 = { userId: 3, duration: 75 };
+// const day1 = { sessions: [session1, session2], date: "01/10/2022" };
+// const day2 = { sessions: [session3, session4, session5], date: "01/10/2022" };
+// const dailyRecord = [day1, day2];
  
-//7b
-function calculateDailyTotalDuration(sessions:Session[]):number{
-  let sum=0;
-  for (const session of sessions){
-    sum+=session.duration;
+// //7b
+// function calculateDailyTotalDuration(sessions:Session[]):number{
+//   let sum=0;
+//   for (const session of sessions){
+//     sum+=session.duration;
  
-  }
-return sum;
-}
+//   }
+// return sum;
+// }
 
-//7c
-function calculateTotalDuration(dailyRecord:Day[]):number{
-  let total=0;
-  for(const day of dailyRecord){
-    total+=calculateDailyTotalDuration(day.sessions)
-  }
-  return total;
-}
+// //7c
+// function calculateTotalDuration(dailyRecord:Day[]):number{
+//   let total=0;
+//   for(const day of dailyRecord){
+//     total+=calculateDailyTotalDuration(day.sessions)
+//   }
+//   return total;
+// }
 
 
 
-//7d
-function getAllSessions(dailyRecord:Day[]):Session[]{
-  let allSessions:Session[]=[];
-  for(const days of dailyRecord){
-    console.log(days.sessions)
-    allSessions=allSessions.concat(days.sessions)
-  }
-  return allSessions;
+// //7d
+// function getAllSessions(dailyRecord:Day[]):Session[]{
+//   let allSessions:Session[]=[];
+//   for(const days of dailyRecord){
+//     console.log(days.sessions)
+//     allSessions=allSessions.concat(days.sessions)
+//   }
+//   return allSessions;
  
-}
-console.log(getAllSessions(dailyRecord))
+// }
+// console.log(getAllSessions(dailyRecord))
  
-// //7e
-function getAllSessionsForUser(dailyRecord:Day[],userId:number):Session[]{
-  const allSessions= getAllSessions(dailyRecord);
-  const filtered=allSessions.filter(session=>session.userId===userId)
-  return filtered;
-}
+// // //7e
+// function getAllSessionsForUser(dailyRecord:Day[],userId:number):Session[]{
+//   const allSessions= getAllSessions(dailyRecord);
+//   const filtered=allSessions.filter(session=>session.userId===userId)
+//   return filtered;
+// }
  
 
-// //7f
-function getAllDurations(dailyRecord:Day[]):number[]{
-  const allSessions=getAllSessions(dailyRecord);
-  const allDuration=allSessions.map(session=>session.duration);
-  return allDuration;
-}
+// // //7f
+// function getAllDurations(dailyRecord:Day[]):number[]{
+//   const allSessions=getAllSessions(dailyRecord);
+//   const allDuration=allSessions.map(session=>session.duration);
+//   return allDuration;
+// }
 
 // const newArr = array123.map(num=> num *2);
 // let array1234 = [1,2,3]
@@ -521,114 +521,199 @@ function getAllDurations(dailyRecord:Day[]):number[]{
 
 // const [bob, jim, carl] = ["BoB", "Jim", "Carl"]
 // console.log(bob, jim, carl)
-let str = ["BoB", "Jim", "Carl"];
+// let str = ["BoB", "Jim", "Carl"];
 
-//join string
-let joinedStr = str.reduce((acc, current)=>{
-    acc += current;
-    return acc;
-},'');
+// //join string
+// let joinedStr = str.reduce((acc, current)=>{
+//     acc += current;
+//     return acc;
+// },'');
 
-//reverse string
-let reversedStr = str.reduce((acc, current)=>{
-  acc = current + acc;              //acc = BoB + '',   acc = Jim + BoB,  acc = carl + Jim + BoB
-  return acc;
-},'');
-
-
-//length of array in array
-let lengthArr = str.reduce((acc:number[], current)=>{
-  acc = acc.concat(current.length);              
-  return acc;
-},[]);
-
-//expected output : "BoBJimCarl"
-let outputstr = [];
-for (let chr of str){
-  outputstr.push(chr);
-}
-
-//Write a function, flatten, that returns an array that has objects of the form {date: "...", id: 1, amt: 15} for all donations.
-flatten(dailyRecord) returns: [
-{ date: '01/10/2022', id: 1, amount: 100 },
-{ date: '01/10/2022', id: 2, amount: 10 },
-{ date: '01/11/2022', id: 3, amount: 1 },
-{ date: '01/11/2022', id: 2, amount: 5 },
-{ date: '01/11/2022', id: 1, amount: 15 }
-]
-
-const donation1 = { funderId: 1, amount: 100 };
-const donation2 = { funderId: 2, amount: 10 };
-const donation3 = { funderId: 3, amount: 1 };
-const donation4 = { funderId: 2, amount: 5 };
-const donation5 = { funderId: 1, amount: 15 };
-const day1 = { donations: [donation1, donation2], date: "01/10/2022", };
-const day2 = { donations: [donation3, donation4, donation5], date: "01/11/2022", };
-
-const dailyRecord = [day1, day2];
+// //reverse string
+// let reversedStr = str.reduce((acc, current)=>{
+//   acc = current + acc;              //acc = BoB + '',   acc = Jim + BoB,  acc = carl + Jim + BoB
+//   return acc;
+// },'');
 
 
-type Donation = {
-  funderId: number;
-  amount: number;
-};
-type Dailydonation = {
-  donations: Donation[];
-  date: string;
-};
-type DailyAmount ={
-  date: string,
-  id: number,
-  amount:number
+// //length of array in array
+// let lengthArr = str.reduce((acc:number[], current)=>{
+//   acc = acc.concat(current.length);              
+//   return acc;
+// },[]);
 
-}
-function flatten(dailyRecord:Dailydonation[]):DailyAmount[]{
-  const allDailyDonation:DailyAmount[]= []
-  for (const day of dailyRecord){
-    for(const donation of day.donations){
-      let dailyDonation = { date: day.date, id: donation.funderId, amount: donation.amount };
-      allDailyDonation.push(dailyDonation)
-    }   
+// //expected output : "BoBJimCarl"
+// let outputstr = [];
+// for (let chr of str){
+//   outputstr.push(chr);
+// }
+
+// //Write a function, flatten, that returns an array that has objects of the form {date: "...", id: 1, amt: 15} for all donations.
+// flatten(dailyRecord) returns: [
+// { date: '01/10/2022', id: 1, amount: 100 },
+// { date: '01/10/2022', id: 2, amount: 10 },
+// { date: '01/11/2022', id: 3, amount: 1 },
+// { date: '01/11/2022', id: 2, amount: 5 },
+// { date: '01/11/2022', id: 1, amount: 15 }
+// ]
+
+// const donation1 = { funderId: 1, amount: 100 };
+// const donation2 = { funderId: 2, amount: 10 };
+// const donation3 = { funderId: 3, amount: 1 };
+// const donation4 = { funderId: 2, amount: 5 };
+// const donation5 = { funderId: 1, amount: 15 };
+// const day1 = { donations: [donation1, donation2], date: "01/10/2022", };
+// const day2 = { donations: [donation3, donation4, donation5], date: "01/11/2022", };
+
+// const dailyRecord = [day1, day2];
+
+
+// type Donation = {
+//   funderId: number;
+//   amount: number;
+// };
+// type Dailydonation = {
+//   donations: Donation[];
+//   date: string;
+// };
+// type DailyAmount ={
+//   date: string,
+//   id: number,
+//   amount:number
+
+// }
+// function flatten(dailyRecord:Dailydonation[]):DailyAmount[]{
+//   const allDailyDonation:DailyAmount[]= []
+//   for (const day of dailyRecord){
+//     for(const donation of day.donations){
+//       let dailyDonation = { date: day.date, id: donation.funderId, amount: donation.amount };
+//       allDailyDonation.push(dailyDonation)
+//     }   
     
+//   }
+//   return allDailyDonation;
+// }
+
+// //myMap(arr, fun) 
+
+// function myMap(arr:number[], func:(num:number)=>number):number[]{
+//   let newArr = [];
+//   for (const ele of arr){
+//     let updatedEl = func(ele);
+//     newArr.push(updatedEl)
+//   }
+//   return newArr
+// }
+
+// function squareaa(num:number):number{
+//   return num* num;
+// }
+
+// myMap([1,2,3])
+
+// function sum (a:number):(b:number)=>number{
+//   return function (b){
+//     return a + b;
+//   }
+// }
+
+// type Num ={
+//   x:number,
+//   y:number
+// }
+
+// function smash(arr:Num[]):number[]{
+//   const result = arr.map(({x, y})=> {
+//     return x + y;
+//   });
+// return result;
+// }
+
+// const bar = [{x:1, y:2}, {x:10, y:4}, {x:4, y:2}]
+// console.log("expect [3, 14, 6]:", smash(bar));
+// function findMax() {
+//   let max = -Infinity;
+//   for (const num of arguments) {
+//   if (num > max) {
+//   max = num;
+//   }
+//   }
+//   return max;
+//   }
+//   const max1 = findMax(1, 123, 500, 115, 66, 88);
+//   const max2 = findMax(3, 6, 8); 
+
+// let john = { name: "John", surname: "Smith", age: 10 };
+// let pete = { name: "Pete", surname: "Hunt", age: 20 };
+// let people = [ john, pete];
+
+// // Use the map function to map the people array to the following:
+// [{ fullName: "John Smith", age: 10 },
+// { fullName: "Pete Hunt", age: 20 },]
+// type People ={
+//   name:string,
+//   surname: string,
+//   age:number
+// }
+// type Person ={
+//   fullName: string,
+//   age:number
+// }
+// function concatName(people:People[]):Person[]{
+//   const concatedName = people.map(person=>{
+//     let personObj:Person = {fullName: person.name + ' ' + person.surname, age: person.age}
+//     return personObj;
+//   })
+//   return concatedName;
+// }
+// function concatName(people:People[]):Person[]{
+//   const concatedName = people.map(({ name, surname, age})=>{
+//     let personObj:Person = {fullName: name + ' ' + surname, age: age}
+//     return personObj;
+//   })
+//   return concatedName;
+// }
+
+function factorial(num:number):number{
+  if(num===1){
+    return 1;
   }
-  return allDailyDonation;
+  return num * factorial(num-1);
 }
 
-//myMap(arr, fun) 
-
-function myMap(arr:number[], func:(num:number)=>number):number[]{
-  let newArr = [];
-  for (const ele of arr){
-    let updatedEl = func(ele);
-    newArr.push(updatedEl)
+function countInstances(str:string, chr:string):number{
+  let count =0;
+  if(chr === ''){
+    return 0
   }
-  return newArr
-}
-
-function squareaa(num:number):number{
-  return num* num;
-}
-
-myMap([1,2,3])
-
-function sum (a:number):(b:number)=>number{
-  return function (b){
-    return a + b;
+  else if(chr === str[0]){
+    return count + countInstances(str.slice(1), chr);
+  }else{
+    return countInstances(str.slice(1), chr)
   }
 }
 
-type Num ={
-  x:number,
-  y:number
-}
 
-function smash(arr:Num[]):number[]{
-  const result = arr.map(ele => {
-    let {x, y}:{x:number, y:number} = ele;
-    return x + y;
-  });
-return result;
-}
+type Person = { name: string; salary: number;}
+//index signature since do not know names of properties ahead of time
+//Department is an object with an unknwon number and name of properties that are strings and values
+//that are Person[] or Department objects
+type Department = { [ deptName: string]: Person[] | Department};
+const company: Department = {
+ sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+ development: {
+ sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }], //subdepartments
+ internals: [{name: 'Jack', salary: 1300}]
+ }
+ };
 
-const bar = [{x:1, y:2}, {x:10, y:4}, {x:4, y:2}]
-console.log("expect [3, 14, 6]:", smash(bar));
+function sumSalaries(department:Department):number{
+  if(Array.isArray(department)){
+    retrun department.reduce(acc, current=>acc += current.salary,0)
+  }else{
+    let sum = 0;
+    for(const subdep of Object.values(department)){
+      sum += 
+    }
+  }
+}
