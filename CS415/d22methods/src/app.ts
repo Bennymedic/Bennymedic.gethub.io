@@ -510,14 +510,15 @@
 // Use reduce to find the largest element of an array.
 // [you may run out of time for these in the quiz, but they will be good 
 //   practice later for the exam. Note that there are 0 points in this quiz for this question.]
-//  arr = [1,3,5];
-// const sumArr = arr.reduce((sum,current)=> sum + current, 0);
-// const largerArr = arr.reduce((acc, current)=> {
-//   if (acc < current){
-//     acc = current;
-//   }
-//   return acc;
-// }, -Infinity);
+let arr = [1,3,5];
+const sumArr = arr.reduce((sum,current)=> sum + current, 0);
+
+const largerArr = arr.reduce((acc, current)=> {
+  if (acc < current){
+    acc = current;
+  }
+  return acc;
+}, -Infinity);
 
 // const [bob, jim, carl] = ["BoB", "Jim", "Carl"]
 // console.log(bob, jim, carl)
