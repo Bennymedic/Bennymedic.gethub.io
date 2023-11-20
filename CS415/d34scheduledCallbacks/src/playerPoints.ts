@@ -64,9 +64,7 @@ export function findTotalPlayerPoints(player: Player): number {
 export function findTotalPointsByJersey(teamStats:Player[], jersey:number):number{
     const totalPoints = teamStats.reduce((total, current)=>{
         if(current.jersey === jersey){
-           for(const stat of current.stats){
-            total += stat.points;
-           }
+           total += findTotalPlayerPoints(current);
         }
         return total;
     },0);
@@ -74,11 +72,7 @@ export function findTotalPointsByJersey(teamStats:Player[], jersey:number):numbe
 }
 export function findTotalScores(teamStats:Player[]):JerseyPoints[]{
     const totalScore = teamStats.map(player=>{
-        let totalPoint = 0;
-        for(const stat of player.stats){
-            totalPoint += stat.points;
-        }
-        let jerseyPoint:JerseyPoints = {jersey:player.jersey, total:totalPoint};
+        let jerseyPoint:JerseyPoints = {jersey:player.jersey, total:findTotalPlayerPoints(player)};
         return jerseyPoint;
     })
     return totalScore;

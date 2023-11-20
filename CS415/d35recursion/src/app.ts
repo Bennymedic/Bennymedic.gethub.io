@@ -75,16 +75,25 @@ function averagePoints(players: Player[]): number[] {
   return average;
 }
 
-function averagePointsReduce(players:Player[]):number[]{
-    const average = players.reduce((acc:number[], player)=>{
-       let total = 0;
-        for(const point of player.points){
-            total+= point;
-       }
-       acc.push(total /player.points.length)
-       return acc;
-    },[])
-    return average;
+function averagePointsReduce(players: Player[]): number[] {
+  const average = players.reduce((acc: number[], player) => {
+    let total = 0;
+    for (const point of player.points) {
+      total += point;
+    }
+    acc.push(total / player.points.length);
+    return acc;
+  }, []);
+  return average;
+}
+
+function aveRedMap(players: Player[]): number[] {
+  const ave = players.map(
+    (player) =>
+      player.points.reduce((avePoint, current) => (avePoint += current), 0) /
+      player.points.length
+  );
+  return ave;
 }
 
 // function averagePoints(players:Player[]):AveName[]{
@@ -99,3 +108,151 @@ function averagePointsReduce(players:Player[]):number[]{
 //     },{})
 //     return [average];
 // }
+
+type Person = { name: string; salary: number };
+type Department = { [deptName: string]: Person[] | Department };
+const company: Department = {
+  sales: [
+    { name: "John", salary: 1000 },
+    { name: "Alice", salary: 600 },
+  ],
+  development: {
+    sites: [
+      { name: "Peter", salary: 2000 },
+      { name: "Alex", salary: 1800 },
+    ], //subdepartments
+    internals: [{ name: "Jack", salary: 1300 }],
+  },
+};
+
+//Displaying the name of employees
+function printName(department: Department): void {
+  if (Array.isArray(department)) {
+    department.forEach((subDiv) => console.log(subDiv.name));
+  } else {
+    for (const subdep of Object.values(department)) {
+      const subDepartment = subdep as Department;
+      printName(subDepartment);
+    }
+  }
+}
+console.log(printName(company)); // John, Alice, Peter, Alex, Jack
+
+//Putting the name of employees into an array
+function getEmployeeName(department: Department): string[] {
+  let employees:string[]=[];
+  if (Array.isArray(department)) {
+    return department.reduce((acc, current) => {
+     acc.push(current.name);
+     return acc; 
+    },[]);
+  } else {
+    for (const subdep of Object.values(department)) {
+      const subDepartment = subdep as Department;
+      employees = employees.concat(getEmployeeName(subDepartment));
+    }
+  }
+  return employees;
+}
+console.log(printName(company)); // [John, Alice, Peter, Alex, Jack]
+
+// Write a function, flatten, that returns an array that has objects of the form {date: "...", id: 1, amt: 15} for all donations.
+// flatten(dailyRecord) returns: [
+// { date: '01/10/2022', id: 1, amount: 100 },
+// { date: '01/10/2022', id: 2, amount: 10 },
+// { date: '01/11/2022', id: 3, amount: 1 },
+// { date: '01/11/2022', id: 2, amount: 5 },
+// { date: '01/11/2022', id: 1, amount: 15 }
+// ]
+
+const donation1 = { funderId: 1, amount: 100 };
+const donation2 = { funderId: 2, amount: 10 };
+const donation3 = { funderId: 3, amount: 1 };
+const donation4 = { funderId: 2, amount: 5 };
+const donation5 = { funderId: 1, amount: 15 };
+const day1 = { donations: [donation1, donation2], date: "01/10/2022" };
+const day2 = {
+  donations: [donation3, donation4, donation5],
+  date: "01/11/2022",
+};
+
+const dailyRecord = [day1, day2];
+type Donation = {
+  funderId: number;
+
+  amount: number;
+};
+
+type Dailydonation = {
+  donations: Donation[];
+
+  date: string;
+};
+
+type DailyAmount = {
+  date: string;
+
+  id: number;
+
+  amount: number;
+};
+
+function flatten(dailyRecord: Dailydonation[]): DailyAmount[] {
+  const allDailyDonation: DailyAmount[] = [];
+
+  for (const day of dailyRecord) {
+    for (const donation of day.donations) {
+      let dailyDonation = {
+        date: day.date,
+        id: donation.funderId,
+        amount: donation.amount,
+      };
+
+      allDailyDonation.push(dailyDonation);
+    }
+  }
+
+  return allDailyDonation;
+}
+
+/**
+
+*
+
+* @param {Array of Objects} Array holding players stasts
+
+* @returns {Array of Objects} returns an array of objects that holds the jersey number and the highest score
+
+*
+
+*/
+
+type HighScore = {
+  [key: string]: number;
+};
+
+type Stat = {
+  game: number;
+
+  points: number;
+};
+
+type Players = {
+  jersey: number;
+
+  stats: Stat[];
+};
+
+function findHighScores(teamStats: Players[]): HighScore[] {
+  const highScore = teamStats.map((player) => {
+    let max = -Infinity;
+    for (const stat of player.stats) {
+      if (stat.points > max) {
+        max = stat.points;
+      }
+    }
+    return { jersey: player.jersey, high: max };
+  });
+  return highScore;
+}
+

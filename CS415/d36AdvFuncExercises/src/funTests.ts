@@ -26,9 +26,9 @@ export function myFilter<T>(
   func:FilterFunc<T>
 ): T[]{
   let filteredEl:T[] = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (func(arr[i],i, arr)) {
-      filteredEl.push(arr[i]);
+  for (const currentValue of arr) {
+    if (func(currentValue, arr.indexOf(currentValue), arr)) {
+      filteredEl.push(currentValue);
     }
   }
   return filteredEl;
@@ -43,12 +43,23 @@ export function myFilter<T>(
  * @returns
  */
 type ReduceCallback<T, U> = (accumulator: U, currentValue: T, currentIndex: number, array: T[]) => U;
-export function myReduce<T, U>(array: T[], func: ReduceCallback<T, U>, initialValue: U): U {
+export function myReduce<T, U>(arr: T[], func: ReduceCallback<T, U>, initialValue: U): U {
     let accumulator: U = initialValue;
 
-    for (let i = 0; i < array.length; i++) {
-        accumulator = func(accumulator, array[i], i, array);
+    for (const currentValue of arr) {
+        accumulator = func(accumulator, currentValue, arr.indexOf(currentValue), arr);
     }
 
     return accumulator;
+}
+
+
+//making a map method for array of numbers
+
+function myMapNum(arr:number[], callback:(current:number,index?: number,arr?:number[])=>number):number[]{
+  let newMap:number[]=[];
+  for(const ele of arr){
+    newMap.push(callback(ele))
+  }
+  return newMap;
 }
