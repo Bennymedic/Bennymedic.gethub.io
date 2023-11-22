@@ -24,9 +24,7 @@ export function makeBank(): Bank {
   ];
   return {
     getBalance: function (id) {
-      const customer = transactionsDB.find(
-        (customer) => customer.customerId === id
-      );
+      const customer = transactionsDB.find((customer) => customer.customerId === id);
       let balance = 0;
       if (customer !== undefined) {
         for (const trans of customer.customerTransactions) {

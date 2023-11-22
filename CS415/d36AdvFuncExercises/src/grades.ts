@@ -13,10 +13,7 @@ Create an object named quiz with the following methods
 The answer arrays might not have the questions in the same order.  Write a function, answerComparator, that you can use to sort the answer arrays by the quiz id, “qid”.   You may assume that there will be answer objects for every question so that once they are sorted they arrays will have the student answers and the corresponding key answer in the same position of each array.  Score 1 point for each answer that matches the key.
 */
 
-type Key ={
-    qid:number,
-    ans:string
-}
+
 
 type Answers ={
     qid:number,
@@ -28,7 +25,7 @@ type Students ={
 }
 type StudentScore = {
     students:Students[],
-    key: Key[],
+    key: Answers[],
     scoreStudent: (sid:number) => number,
     getAverage: () => number
   };
@@ -86,4 +83,3 @@ quiz.getAverage = function():number{
     return totalScore/this.students.length;
 
 };
-

@@ -1,3 +1,6 @@
+import { type } from "os";
+import { join } from "path";
+
 let list = {
   value: 1,
   next: {
@@ -125,6 +128,9 @@ const company: Department = {
   },
 };
 
+
+
+
 //Displaying the name of employees
 function printName(department: Department): void {
   if (Array.isArray(department)) {
@@ -137,6 +143,9 @@ function printName(department: Department): void {
   }
 }
 console.log(printName(company)); // John, Alice, Peter, Alex, Jack
+
+
+
 
 //Putting the name of employees into an array
 function getEmployeeName(department: Department): string[] {
@@ -256,3 +265,229 @@ function findHighScores(teamStats: Players[]): HighScore[] {
   return highScore;
 }
 
+const timer415 = function(num){
+  for(let i = num; i >= 0; i--){
+    console.log(i);
+  }
+}
+setTimeout(timer415, 1000);
+
+//3
+type VariableABC ={
+  [key:string]:number
+}
+// const abcs = [{a:1, b:2, c:3}, { a:2, b:2, c:21}, { a:5, b:2, c:3}]
+//   console. 1og ("expect [6, 8, 30]:", mash (abcs))
+function mesh(abcs:VariableABC[]):number[]{
+  const mulABC = abcs.map(({a,b,c})=> a *b* c);
+  return mulABC;
+}
+
+//4
+
+function getSumbyId (dataArray: OuterobjectI[], id: number): number{
+  const filtered = dataArray.filter(ele => ele.id === id);
+  const total = filtered.reduce((acc, current)=> acc += current.value, 0);
+  return total;
+}
+
+//6
+function isPrime(num:number):boolean{
+  for(let i= 2; i<=Math.sqrt(num); i++){
+    if(num%i){
+      return false;
+    }
+    
+  }
+  return true;
+}
+
+function getAllNames(dataArr){
+  const allName = dataArr.reduce((acc, current)=>{
+    for(const data of dataArr.data){
+      acc.push(data);
+      return acc;
+    }
+  },[])
+  return allName;
+}
+
+
+function recursivePrime(num:number):void{
+  if(isPrime(num)){
+    console.log(num)
+  }
+  if(num>2){
+    recursivePrime(num-1)
+  }
+}
+
+//7
+type Node={
+  name: string, 
+  value: string | null, 
+  children: null | Node[]
+}
+function nodeWalker(node:Node):void{
+  console.log(node.name);
+  if(Array.isArray(node.children)){
+    for(const child of node.children){
+      nodeWalker(child);
+    }
+  }
+}
+
+//8
+const array= [{name:"ram", age:29}, {name:"syam",age:40}, {name:"ganga", age:19}];
+
+type Array1={
+  name:string,
+  age:number
+}
+
+function getAvgAge(arr:Array1[]):number{
+  let avg=arr.reduce((acc,cur)=>{
+    acc+=cur.age
+  return acc},0)
+  let result= (avg/arr.length)
+  return (+result.toFixed(2))
+}
+console.log(getAvgAge(array));
+
+// function findOld(arr:Array1[]):Array1{
+//   let oldMan={} as Array1; 
+//   arr.reduce((max,current)=>{
+//     if(current.age > max){
+//       max = current.age;
+//       oldMan={name:current.name, age:max}
+//     }
+//     return max;
+//   },-Infinity);
+//   return oldMan;
+// }
+
+
+function findOld(arr:Array1[]):Array1 | undefined{
+ 
+ const maxAge = arr.reduce((max,current)=>{
+    if(current.age > max){
+      max = current.age;
+    }
+    return max;
+  },-Infinity);
+  const oldAge = arr.find(person => person.age === maxAge)
+  return oldAge;
+}
+
+//9
+const printMe = ()=>{console.log("hello")}
+
+//10
+type ReduceCallback<T, U> = (accumulator: U, currentValue: T, currentIndex: number, array: T[]) => U;
+export function myReduce<T, U>(arr: T[], func: ReduceCallback<T, U>, initialValue: U): U {
+    let accumulator: U = initialValue;
+
+    for (const currentValue of arr) {
+        accumulator = func(accumulator, currentValue, arr.indexOf(currentValue), arr);
+    }
+
+    return accumulator;
+}
+
+//arr number[], acc number
+function reduceFunc (initialValue:number, arr:number[], func:(acc:number, currentVal:number, index?:number, array?:number[])=>number):number{
+  let accumulator = initialValue;
+  for(const ele of arr){
+    accumulator = func(accumulator, ele);
+  }
+  return accumulator;
+}
+
+//arr number[], return value number[];///********filter foreach */
+function mapceFunc (arr:number[], func:(currentVal:number, index?:number, array?:number[])=>number):number[]{
+  const newArr:number[] = []
+  for(const ele of arr){
+    newArr.push(func(ele));
+  }
+  return newArr;
+}
+
+
+
+//11
+// interface Task {
+//   taskId: number;
+//   taskDescription: string;
+//   priority: 'High' | 'Medium' | 'Low'; completed: boolean;
+// }
+//   interface TaskManager {
+//   getIncompleteTasksCount (priority: 'High' | 'Medium' | 'Low'): number; 
+//   totalIncompleteTasks (): number;
+//   }
+  
+//   function myTask():TaskManager{
+//     let tasks = [
+//       { taskId: 1, taskDescription: 'Write a report', priority: 'High',
+//       completed: false} ,
+//       { taskId: 2, taskDescription: 'Attend a meeting', priority: 'Medium',
+//       completed: true},
+//       { taskId: 3, taskDescription: 'Code a new feature', priority: 'High',
+//       completed: false}
+//     ]
+//     let taskObj:TaskManager = {
+//       getIncompleteTasksCount (priority: 'High' | 'Medium' | 'Low'): number {
+//         return tasks. reduce ( (count, task) => {
+//         if (task.priority === priority && !task. completed) {
+//         count++;
+//       }, 0);
+//         return count;
+//       }
+//       totalIncompleteTasks (): number {
+//         return tasks. reduce (count, task) => {
+//         if (!task. completed) {
+//         count++；
+//         }
+//         return count;
+//         }, 0);
+//         },
+//         };
+//     }
+//     return taskObj;
+//   }
+
+//12
+function excuter(func:(num1:number, num2:number)=>number, num1:number, num2:number):number{
+  const result = func(num1, num2);
+  return result;
+}
+function sum (num1:number, num2:number):number{
+  return num1 * num2;
+}
+console.log(excuter(sum, 1,3))
+
+
+//13
+const calculator = {
+  operand1:0,
+  operand2:0,
+  setValues(operand1:number, operand2:number):void{
+      calculator.operand1 = operand1;
+      calculator.operand2 = operand2;
+  },
+  sum():number{
+      return this.operand1 + this.operand2;
+  },
+  mul():number{
+      return this.operand1 * this.operand2;
+  }
+};  
+
+
+//15
+
+function sortByLength(str:string):string{
+  let arr = str.split(" ");
+  arr.sort((a,b)=>a.length - b.length);
+  const joinedStr = arr.join(" ");
+  return joinedStr;
+}
