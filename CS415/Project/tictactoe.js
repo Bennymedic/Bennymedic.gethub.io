@@ -1,7 +1,7 @@
 "use strict";
 const winners = new Array();
-const player1Selections = new Array();
-const player2Selections = new Array();
+let player1Selections = new Array();
+let player2Selections = new Array();
 let timer;
 let numberOfPlayers = 2;
 let currentPlayer = 0;
@@ -18,10 +18,10 @@ function drawBoard() {
         Parent.removeChild(Parent.firstChild);
     }
 
-    for (s = 0; s < 4; s++) {
+    for (let s = 0; s < 4; s++) {
         const row = document.createElement("tr");
         
-        for (r = 0; r < 4; r++) {
+        for (let r = 0; r < 4; r++) {
             const col = document.createElement("td");
             col.id = counter;
 
@@ -123,17 +123,17 @@ function checkWinner() {
     if (playerSelections.length >= size) {
         // check if any 'winners' are also in your selections
         
-        for (i = 0; i < winners.length; i++) {
+        for (let i = 0; i < winners.length; i++) {
             let sets = winners[i];  // winning hand
             let setFound = true;
             
-            for (r = 0; r < sets.length; r++) {
+            for (let r = 0; r < sets.length; r++) {
                 // check if number is in current players hand
                 // if not, break, not winner
                 let found = false;
                 
                 // players hand
-                for (s = 0; s < playerSelections.length; s++) {
+                for (let s = 0; s < playerSelections.length; s++) {
                     if (sets[r] == playerSelections[s]) {
                         found = true;
                         break;
