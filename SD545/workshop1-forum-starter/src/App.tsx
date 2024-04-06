@@ -1,18 +1,18 @@
-import { ChangeEvent, useRef, useState } from 'react';
-import classNames from 'classnames';
-import _ from 'lodash';
-import { v4 as uuidv4 } from 'uuid';
-import dayjs from 'dayjs';
+import { ChangeEvent, useRef, useState } from "react";
+import classNames from "classnames";
+import _ from "lodash";
+import { v4 as uuidv4 } from "uuid";
+import dayjs from "dayjs";
 
-import './App.scss'
-import avatar from './images/bozai.png'
+import "./App.scss";
+import avatar from "./images/bozai.png";
 
 interface Comment {
   rpid: number | string;
   user: {
-    uid: string,
-    avatar: string,
-    uname: string
+    uid: string;
+    avatar: string;
+    uname: string;
   };
   content: string;
   ctime: string;
@@ -26,95 +26,96 @@ const defaultList = [
     rpid: 3,
     // user info
     user: {
-      uid: '13258165',
-      avatar: '',
-      uname: 'Jay Zhou',
+      uid: "13258165",
+      avatar: "",
+      uname: "Jay Zhou",
     },
     // comment content
-    content: 'Nice, well done',
+    content: "Nice, well done",
     // created datetime
-    ctime: '10-18 08:15',
+    ctime: "10-18 08:15",
     like: 88,
   },
   {
     rpid: 2,
     user: {
-      uid: '36080105',
-      avatar: '',
-      uname: 'Song Xu',
+      uid: "36080105",
+      avatar: "",
+      uname: "Song Xu",
     },
-    content: 'I search for you thousands of times, from dawn till dusk.',
-    ctime: '11-13 11:29',
+    content: "I search for you thousands of times, from dawn till dusk.",
+    ctime: "11-13 11:29",
     like: 88,
   },
   {
     rpid: 1,
     user: {
-      uid: '30009257',
+      uid: "30009257",
       avatar,
-      uname: 'John',
+      uname: "John",
     },
-    content: 'I told my computer I needed a break... now it will not stop sending me vacation ads.',
-    ctime: '10-19 09:00',
+    content:
+      "I told my computer I needed a break... now it will not stop sending me vacation ads.",
+    ctime: "10-19 09:00",
     like: 66,
   },
   {
     rpid: 4,
     user: {
-      uid: '30009257',
+      uid: "30009257",
       avatar,
-      uname: 'John',
+      uname: "John",
     },
-    content: 'Follow Me',
-    ctime: '10-18 09:00',
+    content: "Follow Me",
+    ctime: "10-18 09:00",
     like: 77,
-  }
-]
+  },
+];
 // current logged in user info
 const user = {
   // userid
-  uid: '30009257',
+  uid: "30009257",
   // profile
   avatar,
   // username
-  uname: 'John',
-}
+  uname: "John",
+};
 
 // Nav Tab
 const tabs = [
-  { type: 'hot', text: 'Top' },
-  { type: 'newest', text: 'Newest' },
-]
+  { type: "hot", text: "Top" },
+  { type: "newest", text: "Newest" },
+];
 
 const App = () => {
+  const [commentList, setCommentList] = useState<Comment[]>(
+    _.orderBy(defaultList, "like", "desc")
+  );
+  const [activeType, setActiveType] = useState("hot");
 
-  const [commentList, setCommentList] = useState<Comment[]>(_.orderBy(defaultList, 'like', 'desc'));
-  const [activeType, setActiveType] = useState('hot');
-
-  const [inputVal, setInputVal] = useState('')
+  const [inputVal, setInputVal] = useState("");
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const deleteComment = (rpid: number | string) => {
-    setCommentList(commentList.filter(item => item.rpid !== rpid));
-  }
+    setCommentList(commentList.filter((item) => item.rpid !== rpid));
+  };
 
   const changeActiveType = (type: string) => {
     setActiveType(type);
 
-    if(type === 'hot'){
-
-      setCommentList(_.orderBy(commentList, 'like', 'desc'));
+    if (type === "hot") {
+      setCommentList(_.orderBy(commentList, "like", "desc"));
       //setCommentList(commentList.sort((a,b)=> b.like - a.like));
     } else {
-      setCommentList(_.orderBy(commentList, 'ctime', 'desc'));
+      setCommentList(_.orderBy(commentList, "ctime", "desc"));
       //setCommentList(commentList.sort((a,b)=> a.ctime.localeCompare(b.ctime)));
     }
-  }
-  const handleInputChange = (e:ChangeEvent<HTMLTextAreaElement>)=>{
+  };
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInputVal(e.currentTarget.value);
-      e.currentTarget.focus(); 
-  }
+    e.currentTarget.focus();
+  };
 
   const makePost = () => {
     // console.log(textareaRef.current?.value);
@@ -123,17 +124,17 @@ const App = () => {
       rpid: uuidv4(),
       user,
       //content:textareaRef.current!.value, //uncontrolled component
-      content:inputVal, //controlled component
+      content: inputVal, //controlled component
 
-      ctime: dayjs(Date.now()).format('MM-DD HH:mm'),
-      like: 0
-    }
+      ctime: dayjs(Date.now()).format("MM-DD HH:mm"),
+      like: 0,
+    };
 
     setCommentList([...commentList, newComment]);
     //textareaRef.current!.value = '';
     //textareaRef.current!.focus();
-    setInputVal('')
-  }
+    setInputVal("");
+  };
 
   return (
     <div className="app">
@@ -147,16 +148,18 @@ const App = () => {
           </li>
           <li className="nav-sort">
             {/* highlight class name： active */}
-            {
-              tabs.map(tab => (
-              <span key={tab.type}
+            {tabs.map((tab) => (
+              <span
+                key={tab.type}
                 // className={`nav-item ${tab.type === activeType && 'active'}`}
-                className={classNames('nav-item', {active: tab.type === activeType})}
-                onClick={() => changeActiveType(tab.type)}>
+                className={classNames("nav-item", {
+                  active: tab.type === activeType,
+                })}
+                onClick={() => changeActiveType(tab.type)}
+              >
                 {tab.text}
-              </span>)
-              )
-            }
+              </span>
+            ))}
           </li>
         </ul>
       </div>
@@ -172,7 +175,8 @@ const App = () => {
           </div>
           <div className="reply-box-wrap">
             {/* comment */}
-            <textarea ref={textareaRef}
+            <textarea
+              ref={textareaRef}
               className="reply-box-textarea"
               placeholder="tell something..."
               value={inputVal}
@@ -187,49 +191,62 @@ const App = () => {
         {/* comment list */}
         <div className="reply-list">
           {/* comment item */}
-          {commentList.map(item => (
-            <div className="reply-item" key={item.rpid}>
-              {/* profile */}
-              <div className="root-reply-avatar">
-                <div className="bili-avatar">
-                  <img
-                    className="bili-avatar-img"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              <div className="content-wrap">
-                {/* username */}
-                <div className="user-info">
-                  <div className="user-name">{item.user.uname}</div>
-                </div>
-                {/* comment content */}
-                <div className="root-reply">
-                  <span className="reply-content">{item.content}</span>
-                  <div className="reply-info">
-                    {/* comment created time */}
-                    <span className="reply-time">{item.ctime}</span>
-                    {/* total likes */}
-                    <span className="reply-time">Like:{item.like}</span>
-
-                    {
-                      item.user.uid === user.uid && (
-                        <span className="delete-btn" onClick={() => deleteComment(item.rpid)}>
-                          Delete
-                        </span>
-                      )
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
+          {commentList.map((item) => (
+            <Item
+              comment={item}
+              currentUserId={user.uid}
+              onDelete={deleteComment}
+            />
           ))}
-
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
+interface Props {
+  comment: Comment;
+  currentUserId: string;
+  onDelete: (rpid: string | number) => void;
+}
+function Item(prop: Props) {
+  const { rpid, like, user, ctime, content } = prop.comment;
+  const currentUserId = prop.currentUserId;
+  const onDelete = prop.onDelete;
+
+  return (
+    <div className="reply-item" key={rpid}>
+      {/* profile */}
+      <div className="root-reply-avatar">
+        <div className="bili-avatar">
+          <img className="bili-avatar-img" alt="" />
+        </div>
+      </div>
+
+      <div className="content-wrap">
+        {/* username */}
+        <div className="user-info">
+          <div className="user-name">{user.uname}</div>
+        </div>
+        {/* comment content */}
+        <div className="root-reply">
+          <span className="reply-content">{content}</span>
+          <div className="reply-info">
+            {/* comment created time */}
+            <span className="reply-time">{ctime}</span>
+            {/* total likes */}
+            <span className="reply-time">Like:{like}</span>
+
+            {user.uid === currentUserId && (
+              <span className="delete-btn" onClick={() => onDelete(rpid)}>
+                Delete
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
