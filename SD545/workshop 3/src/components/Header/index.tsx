@@ -1,34 +1,39 @@
-import { KeyboardEvent } from "react";
-import Todo from "../../types";
-import "./index.css";
-import { nanoid } from 'nanoid'
+import { KeyboardEvent } from 'react';
+import { nanoid } from 'nanoid';
+
+import Todo from '../../types';
+import './index.css';
+
 
 type Props = {
-  addNewTodo: (todo: Todo) => void;
-};
+  onAddNewTodo: (todo: Todo) => void;
+}
 
 export default function Header(props: Props) {
-  const { addNewTodo } = props;
+  const { onAddNewTodo } = props;
 
-  const addList = (e: KeyboardEvent<HTMLInputElement>) => {
-    let value = e.currentTarget.value;
-    if (value.trim()) {
-      if (e.key === "Enter") {
-        addNewTodo({
+  const addTodo = (e: KeyboardEvent<HTMLInputElement>) => {
+    const value = e.currentTarget.value;
+
+    if (e.key === 'Enter') {
+      if (value.trim()) {
+        onAddNewTodo({
           id: nanoid(),
           name: value,
-          done: false,
+          done: false
         });
-        e.currentTarget.value = ''
+        e.currentTarget.value = '';
+        e.currentTarget.focus();
+      } else {
+        alert('Task cannot be empty');
       }
-    } else {
-      alert("Task cannot be empty");
     }
-  };
+  }
+
 
   return (
     <div className="todo-header">
-      <input type="text" placeholder="Enter task name" onKeyUp={addList} />
+      <input type="text" placeholder="Enter task name!!!!" onKeyDown={addTodo} />
     </div>
-  );
+  )
 }
