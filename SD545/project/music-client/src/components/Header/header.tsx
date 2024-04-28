@@ -18,6 +18,10 @@ export default function Header() {
     e.preventDefault();
   }
 
+  const navigateToLogin=()=>{
+    navigator('/');
+    localStorage.removeItem('access_token')
+  }
 
   const search = (e:KeyboardEvent<HTMLInputElement>)=>{
     const value = e.currentTarget.value.trim()
@@ -55,7 +59,7 @@ export default function Header() {
             </form>
 
             <div className="flex-shrink-0 dropdown">
-              <button type="button" className="btn btn-outline-primary me-2" onClick={()=>navigator('/')}>
+              <button type="button" className="btn btn-outline-primary me-2" onClick={navigateToLogin}>
                 Logout
               </button>
             </div>
